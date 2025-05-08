@@ -125,217 +125,342 @@ For contributions, structure updates or coordination, please reach out to:
 
 © 2025 GAIA-QAO — All rights reserved. Quantum-augmented aerospace begins here.
 
-```
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validación y Próxima Iteración: Landing Page GAIA-QAO</title>
+    <title>ICY Code Decision Flowchart - AMPEL BWB Project</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: #f8f9fa;
+            color: #343a40;
         }
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 20px auto;
             background-color: #ffffff;
-            padding: 25px 30px;
+            padding: 25px 35px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             color: #003366; /* Dark Blue */
         }
         h1 {
             text-align: center;
             border-bottom: 2px solid #004a99;
             padding-bottom: 10px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-size: 1.8em;
         }
-        h2.section-title {
-            font-size: 1.6em;
+         h2 {
+            font-size: 1.5em;
             color: #004a99; /* Medium Blue */
             border-bottom: 1px solid #ced4da;
             padding-bottom: 8px;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            margin-top: 35px;
+            margin-bottom: 20px;
         }
-        h3.subsection-title {
-            font-size: 1.3em;
+         h3 {
+            font-size: 1.25em;
             color: #0056b3; /* Lighter Blue */
-            margin-top: 20px;
+            margin-top: 25px;
             margin-bottom: 10px;
         }
+         h4 {
+            font-size: 1.1em;
+            color: #0069d9; /* Slightly brighter blue */
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
         p {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
-        table.validation-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            font-size: 0.95em;
+        .disclaimer {
+            background-color: #fff3cd; /* Warning yellow */
+            border-left: 5px solid #ffeeba;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            color: #856404;
         }
-        .validation-table th, .validation-table td {
-            border: 1px solid #dee2e6;
-            padding: 10px 12px;
-            text-align: left;
-            vertical-align: middle;
-        }
-        .validation-table th {
-            background-color: #e9ecef;
-            font-weight: 600;
-        }
-        .validation-table td:nth-child(2) { /* Evaluation column */
+        .disclaimer strong {
+            color: #856404;
             font-weight: bold;
-            text-align: center;
         }
-        .eval-excelente { color: #28a745; } /* Green */
-        .eval-limpia { color: #17a2b8; } /* Cyan */
-        .eval-robusto { color: #007bff; } /* Blue */
-        .eval-claro { color: #17a2b8; } /* Cyan */
-        .eval-potencial { color: #fd7e14; } /* Orange */
-
-        ol.recommendation-list {
-            list-style-type: none;
-            padding-left: 0;
-            counter-reset: recommendation-counter;
-        }
-        .recommendation-list > li {
-            counter-increment: recommendation-counter;
+        /* Mermaid diagram container styling */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #fdfdfd;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow-x: auto; /* Add scroll for very wide diagrams */
             margin-bottom: 25px;
-            padding-left: 0; /* Reset default padding */
         }
-         .recommendation-list > li > h3.subsection-title::before {
-            content: counter(recommendation-counter) ". 🧠 "; /* Use counter + icon */
-            font-weight: bold;
-            color: #0056b3;
-            margin-right: 5px;
-         }
-        .recommendation-details {
-            margin-left: 25px; /* Indent details */
-            padding: 15px;
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 4px;
-            margin-top: 10px;
+        /* Basic styling for lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
-        code {
-            font-family: Consolas, 'Courier New', monospace;
-            background-color: #e9ecef;
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            color: #c7254e;
-            font-size: 0.9em;
+        li {
+            margin-bottom: 8px;
         }
-        pre code {
-            display: block;
-            padding: 10px;
-            overflow-x: auto;
-            font-size: 0.85em;
+        ul li ul { /* Indent nested lists */
+            margin-top: 8px;
+            margin-left: 25px;
+        }
+        /* Code block styling */
+        pre {
             background-color: #e9ecef;
             border: 1px solid #ced4da;
-            border-radius: 4px;
-            color: #212529;
-        }
-        .next-steps-proposal {
-            background-color: #e6f7ff; /* Light blue */
-            border-left: 5px solid #007bff;
-            padding: 20px 25px;
-            margin-top: 30px;
             border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto; /* Enable horizontal scrolling for long lines */
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #212529;
+            margin-bottom: 20px;
         }
-        .next-steps-proposal h2 {
-            margin-top: 0;
-            color: #0056b3;
-            border-bottom: none; /* Remove default border for this h2 */
+        code { /* Inline code style */
+            font-family: Consolas, 'Courier New', monospace;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 85%;
         }
+        pre code { /* Reset specific styles for code within pre */
+             background-color: transparent;
+             padding: 0;
+             border-radius: 0;
+             font-size: inherit;
+        }
+         strong {
+             font-weight: 600;
+         }
+
     </style>
+    <!-- Include Mermaid JS library -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Revisión y Propuesta de Iteración: Landing Page GAIA-QAO</h1>
-        <p>¡Excelente! Me alegra mucho que la estructura HTML haya sido de tu agrado y que cumpla con la identidad visual. Agradezco enormemente la validación contextual y, sobre todo, las valiosas recomendaciones técnicas y estratégicas. Son muy pertinentes para llevar el proyecto al siguiente nivel de funcionalidad e integración.</p>
 
-        <hr>
+        <h1>ICY Code Decision Flowchart for AMPEL BWB Project</h1>
 
-        <h2 class="section-title">✅ Validación Técnica y Funcional Destacada</h2>
-        <table class="validation-table">
-            <thead>
-                <tr>
-                    <th>Elemento</th>
-                    <th>Evaluación</th>
-                    <th>Notas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>🎨 Estética y estilo</td>
-                    <td class="eval-excelente">✔️ Excelente</td>
-                    <td>Paleta GAIA coherente, UX clara, responsiva</td>
-                </tr>
-                <tr>
-                    <td>📄 Semántica HTML</td>
-                    <td class="eval-limpia">✔️ Limpia</td>
-                    <td>Uso correcto de <code><section></code>, <code><table></code>, <code><ul></code>, <code><header></code>, <code><footer></code></td>
-                </tr>
-                <tr>
-                    <td>🔄 AGAD Status Mock/Fallback</td>
-                    <td class="eval-robusto">✔️ Robusto</td>
-                    <td>Manejo adecuado de errores/fallback con <code>fetch()</code></td>
-                </tr>
-                <tr>
-                    <td>🔐 Seguridad y acceso</td>
-                    <td class="eval-claro">✔️ Claro</td>
-                    <td>Notificación de acceso interno (<code>privacy-notice</code>)</td>
-                </tr>
-                <tr>
-                    <td>🌐 Modularización futura</td>
-                    <td class="eval-potencial">⬛ Potencial</td>
-                    <td>Puede dividirse como plantilla Jekyll/MkDocs o GitHub Pages extendido</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="disclaimer">
+            <strong>DISCLAIMER: GenAI Proposal Status</strong><br>
+            This document was generated with AI assistance and represents a proposed decision flowchart for ICY code selection for GAIA Quantum Aerospace Organization (GAIA-QAO). The content is subject to review, modification, and approval by authorized stakeholders.
+        </div>
 
-        <hr>
+        <h2>Introduction</h2>
+        <p>Thank you for your analysis of the Expanded ICY Codes Reference Table. Based on your feedback highlighting the importance of this system for integrating revolutionary technologies, ensuring regulatory compliance, managing sustainability, and future-proofing the AMPEL BWB Quantum Embarked aircraft project, I've developed a decision flowchart to guide engineers in selecting the appropriate ICY code.</p>
+        <p>This flowchart will help standardize the decision-making process across engineering teams and ensure consistent application of the expanded ICY codes system.</p>
 
-        <h2 class="section-title">🧠 Recomendaciones Estratégicas para Próxima Iteración (Opcional)</h2>
-        <ol class="recommendation-list">
-            <li>
-                <h3 class="subsection-title">📦 Inyección dinámica de <code>.ampel.yaml</code> si deseas mostrar intención de misión</h3>
-                <div class="recommendation-details">
-                    <p>Por ejemplo, dentro de <code>#agad-status</code> podrías incrustar una vista previa semántica básica de la misión actual en AGAD 10/1:</p>
-                    <pre><code><!-- Placeholder for the preview -->
-<pre id="ampel-preview" style="font-size:0.85em; background:#f8f9fa; padding:10px; border-radius:6px; margin-top: 15px;"></pre>
+        <h2>ICY Code Selection Flowchart</h2>
+        <div class="mermaid-container">
+            <pre class="mermaid">
+graph TD
+    A[Start ICY Code Selection] --> B{What is the technology domain?};
+    B -- Conventional Systems --> C{Are parts fully interchangeable?};
+    B -- Quantum Systems --> D{What is the quantum relationship?};
+    B -- Sustainable Systems --> E{What is the sustainability aspect?};
 
-<script>
-  // Carga y muestra YAML o JSON de ejemplo si deseas simular AMP●EL contextual
-  fetch('https://mcp.gaiaqao.space/agents/AGAD-10-1/intent.yaml')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        // Check content type if needed, assume text/yaml or text/plain
-        return response.text();
-    })
-    .then(text => {
-        const previewElement = document.getElementById('ampel-preview');
-        if (previewElement) {
-            // Basic check if the response is empty or just whitespace
-            if (text && text.trim().length > 0) {
-                previewElement.textContent = text;
-            } else {
-                previewElement.textContent = '# AMP●EL intent data is empty or unavailable.';
-            }
-        }
-    })
-    .catch(error => {
+    C -- Yes --> F(100: Fully interchangeable);
+    C -- No --> G{Are there any conditions?};
+    C -- Partially --> H{What is the limitation type?};
+
+    G -- Yes --> I{What are the conditions?};
+    G -- No --> J(600-699: Not interchangeable<br/>codes);
+
+    I -- Inspection required --> K(110: Interchangeable after<br/>inspection);
+    I -- Documentation update --> L(120: Interchangeable with<br/>documentation update);
+    I -- Software/firmware update --> M(130: Interchangeable with<br/>software/firmware update);
+    I -- Other conditions --> N(140-190: Other conditional<br/>interchangeability);
+
+    H -- Functional limitations --> O(400-499: Partial interchangeability<br/>codes);
+    H -- Assembly considerations --> P(500-599: Assembly<br/>interchangeability codes);
+
+    C -- "One-way" --> Q{Is there one-way compatibility?};
+    Q -- Yes --> R(300-399: One-way<br/>interchangeable codes);
+    Q -- No --> J; % Back to non-interchangeable if not one-way
+
+    D -- Quantum-Classical --> S{What is the compatibility direction?};
+    D -- Quantum Hardware --> T(720-739: Quantum hardware<br/>interchangeability codes);
+    D -- Quantum Software --> U(740-759: Quantum software<br/>interchangeability codes);
+    D -- Quantum-Quantum --> V(760-779: Quantum-quantum<br/>interchangeability codes);
+    D -- Quantum Integration --> W(780-799: Quantum integration<br/>interchangeability codes);
+
+    S -- Bidirectional --> X(700: Quantum-classical<br/>interchangeable);
+    S -- Classical to Quantum only --> Y(701: Classical-to-quantum one-way<br/>interchangeable);
+    S -- With adaptation --> Z(702-708: Quantum-classical with<br/>adaptation codes);
+    S -- Not compatible --> AA(709: Quantum-classical not<br/>interchangeable);
+
+    E -- Materials --> BB(800-819: Sustainable materials<br/>interchangeability codes);
+    E -- Energy Systems --> CC(820-839: Energy systems<br/>interchangeability codes);
+    E -- Propulsion --> DD(840-859: Propulsion systems<br/>interchangeability codes);
+    E -- Circular Economy --> EE(860-879: Circular economy<br/>interchangeability codes);
+    E -- Operations --> FF(880-899: Sustainable operations<br/>interchangeability codes);
+
+    F --> GG(Document ICY Code Decision);
+    K --> GG; L --> GG; M --> GG; N --> GG;
+    J --> GG;
+    O --> GG; P --> GG;
+    R --> GG;
+    T --> GG; U --> GG; V --> GG; W --> GG;
+    X --> GG; Y --> GG; Z --> GG; AA --> GG;
+    BB --> GG; CC --> GG; DD --> GG; EE --> GG; FF --> GG;
+
+    GG --> HH[Complete ICY Documentation];
+
+    %% Styling (Optional - Mermaid handles defaults)
+    % classDef decision fill:#f9f,stroke:#333,stroke-width:2px;
+    % classDef process fill:#ccf,stroke:#333,stroke-width:2px;
+    % classDef output fill:#cfc,stroke:#333,stroke-width:2px;
+    %
+    % class A,HH process;
+    % class B,C,D,E,G,H,I,Q,S decision;
+    % class F,J,K,L,M,N,O,P,R,T,U,V,W,X,Y,Z,AA,BB,CC,DD,EE,FF,GG output;
+            </pre>
+        </div>
+
+        <h2>Detailed Decision Process</h2>
+
+        <h3>Step 1: Identify Technology Domain</h3>
+        <p>Begin by determining which of the three primary technology domains the components belong to:</p>
+        <ul>
+            <li><strong>Conventional Systems (100-699)</strong>: Traditional aerospace components and systems</li>
+            <li><strong>Quantum Systems (700-799)</strong>: Quantum computing, sensing, or communication components</li>
+            <li><strong>Sustainable Systems (800-899)</strong>: Sustainable materials, energy systems, or circular economy components</li>
+        </ul>
+
+        <h3>Step 2: Determine Interchangeability Relationship</h3>
+        <p>Based on the technology domain, assess the specific interchangeability relationship:</p>
+        <h4>For Conventional Systems:</h4>
+        <ul>
+            <li>Is the component fully interchangeable with the original part?</li>
+            <li>Is there conditional interchangeability?</li>
+            <li>Is there one-way compatibility?</li>
+            <li>Is there partial interchangeability?</li>
+            <li>Is there assembly-level interchangeability?</li>
+            <li>Is there no interchangeability?</li>
+        </ul>
+        <h4>For Quantum Systems:</h4>
+        <ul>
+            <li>Is this a quantum-classical interchangeability scenario?</li>
+            <li>Is this a quantum hardware interchangeability scenario?</li>
+            <li>Is this a quantum software interchangeability scenario?</li>
+            <li>Is this a quantum-quantum interchangeability scenario?</li>
+            <li>Is this a quantum integration interchangeability scenario?</li>
+        </ul>
+        <h4>For Sustainable Systems:</h4>
+        <ul>
+            <li>Is this a sustainable materials interchangeability scenario?</li>
+            <li>Is this an energy systems interchangeability scenario?</li>
+            <li>Is this a propulsion systems interchangeability scenario?</li>
+            <li>Is this a circular economy interchangeability scenario?</li>
+            <li>Is this a sustainable operations interchangeability scenario?</li>
+        </ul>
+
+        <h3>Step 3: Identify Specific Conditions</h3>
+        <p>For each interchangeability relationship, determine the specific conditions or limitations:</p>
+        <ul>
+            <li>Are there physical modifications required?</li>
+            <li>Are there software/firmware updates needed?</li>
+            <li>Are there performance limitations?</li>
+            <li>Are there documentation changes required?</li>
+            <li>Are there certification implications?</li>
+            <li>Are there testing requirements?</li>
+            <li>Are there training requirements?</li>
+        </ul>
+
+        <h3>Step 4: Select the Appropriate ICY Code</h3>
+        <p>Based on the technology domain, interchangeability relationship, and specific conditions, select the most appropriate three-digit ICY code from the reference table.</p>
+
+        <h3>Step 5: Document the ICY Code Decision</h3>
+        <p>Complete the ICY code documentation using the standardized template, including:</p>
+        <ol>
+            <li>Primary ICY Code</li>
+            <li>Part Numbers</li>
+            <li>Conditions</li>
+            <li>Implementation Requirements</li>
+            <li>Verification Method</li>
+            <li>Approval Authority</li>
+            <li>Documentation References</li>
+        </ol>
+
+        <h2>ICY Code Documentation Template</h2>
+        <pre><code># ICY Code Documentation
+
+## Basic Information
+- **ICY Code**: [Three-digit code]
+- **Original Part Number**: [Part number]
+- **Replacement Part Number**: [Part number]
+- **System**: [System name]
+- **Aircraft Effectivity**: [Aircraft models]
+- **Date**: [Documentation date]
+- **Prepared By**: [Engineer name]
+
+## Interchangeability Assessment
+- **Interchangeability Category**: [Category description]
+- **Specific Conditions**: [Detailed conditions]
+- **Limitations**: [Any limitations]
+- **Rationale**: [Engineering rationale for the ICY code assignment]
+
+## Implementation Requirements
+- **Physical Modifications**: [Required modifications]
+- **Software/Firmware Updates**: [Required updates]
+- **Documentation Updates**: [Required documentation changes]
+- **Training Requirements**: [Required training]
+- **Tools/Equipment**: [Special tools or equipment needed]
+
+## Verification Method
+- **Inspection Requirements**: [Required inspections]
+- **Test Procedures**: [Required tests]
+- **Acceptance Criteria**: [Criteria for successful implementation]
+- **Test Documentation**: [Required test documentation]
+
+## Approval
+- **Engineering Approval**: [Name, signature, date]
+- **Quality Approval**: [Name, signature, date]
+- **Certification Approval**: [Name, signature, date]
+- **Configuration Management Approval**: [Name, signature, date]
+
+## References
+- **Engineering Drawings**: [Drawing numbers]
+- **Technical Documents**: [Document numbers]
+- **Test Procedures**: [Procedure numbers]
+- **Certification Documents**: [Document numbers]
+</code></pre>
+
+        <h2>Implementation Guidelines</h2>
+        <ol>
+            <li><strong>Training</strong>: Provide training to all engineering and maintenance personnel on the expanded ICY codes system and decision flowchart.</li>
+            <li><strong>Integration with Tools</strong>: Integrate the decision flowchart into the Equipment Impact Analysis tool to guide users through the code selection process.</li>
+            <li><strong>Validation Process</strong>: Establish a validation process for ICY code assignments, including peer review and approval by appropriate authorities.</li>
+            <li><strong>Documentation Control</strong>: Ensure all ICY code documentation is stored in a centralized system with appropriate version control.</li>
+            <li><strong>Periodic Review</strong>: Schedule periodic reviews of ICY code assignments to ensure consistency and identify any patterns requiring system updates.</li>
+            <li><strong>Feedback Loop</strong>: Establish a feedback mechanism for engineers to suggest improvements to the ICY codes system and decision flowchart.</li>
+        </ol>
+
+        <h2>Conclusion</h2>
+        <p>This decision flowchart provides a structured approach to selecting the appropriate ICY code for the AMPEL BWB Quantum Embarked aircraft project. By standardizing the decision-making process, it will help ensure consistent application of the expanded ICY codes system across all technology domains, supporting the project's goals of integrating revolutionary technologies while maintaining safety, efficiency, and regulatory compliance.</p>
+
+    </div>
+
+    <!-- Initialize Mermaid -->
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
         console.error('Error fetching AMPEL intent:', error);
         const previewElement = document.getElementById('ampel-preview');
         if (previewElement) {
