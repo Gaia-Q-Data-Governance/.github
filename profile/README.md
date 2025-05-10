@@ -1,760 +1,808 @@
 # 🌐 GAIA-QAO Landing Page – Web Gateway Overview
 
-**Version:** 1.0.0  
-**Status:** Stable  
-**Maintainer:** GAIA-MCP Interface Layer  
-**Last Updated:** 2025-05-08  
-**Format:** `HTML + JS + MCP-Bound YAML`  
-**InfoCode:** GAIA-QAO-WEB-LANDING-GATEWAY-0001
+---
+title: GAIA-Q AEROSPACE SYSTEM THREADING ORGANIZATIONAL PROTOCOL COFUNDING ONTOLOGY (GA-SToP-CO2) - Consolidated Framework
+id: GP-FD-07-000-CF-A
+version: 1.0.0
+date: 2025-05-10
+authors: [GAIA Quantum Aerospace Technical Team (Compiled)]
+reviewers: [GA-SToP-CO2 Steering Committee, Sustainability Integration Board, Emissions Quantification Working Group, Resource Sustainability Working Group, Materials Science Advisory Board, Systems Integration Working Group, Implementation Working Group]
+approvers: [Chief Sustainability Officer, Chief Technology Officer, Chief Strategy Officer]
+tags: [GASToPCO2, framework, consolidated, aerospace, sustainability, CO2, resources, emissions, criticality, metrics, adoption, substitution]
+related: [GP-FD-07-001-OV-A, GP-FD-07-002-SPEC-A, GP-FD-07-003-FIG-A, GP-FD-07-004-PLAN-A, GP-FD-07-005-PROC-A, GP-FD-07-006-SPEC-A, GP-FD-07-007-SPEC-A]
+sustainability_impact: direct
+co2_reduction_potential: high
+resource_criticality_impact: high
+---
+
+# GA-SToP-CO2 Consolidated Framework Document
+
+> **DISCLAIMER: GenAI Proposal Status** > This document was generated with assistance from artificial intelligence and represents a consolidated structure for the GAIA AIR AMPEL360XWLRGA COAFI documentation system. It synthesizes information from multiple GASToP-CO2 specifications and plans (GP-FD-07-002, GP-FD-07-003, GP-FD-07-004, GP-FD-07-006, GP-FD-07-007). It should be reviewed by subject matter experts before implementation in any operational context. For full details on specific topics, please refer to the individual source documents.
+
+## 1. Introduction to the GA-SToP-CO2 Framework
+
+The General Air and Space Technical Ontology Participation on Common Objectives for CO₂ Reduction (GA-SToP-CO2) framework provides a comprehensive, standardized approach for the aerospace industry to measure, report, manage, and reduce its environmental impact, focusing on both carbon dioxide (CO₂) emissions and resource criticality. It aims to establish a common quantitative and qualitative foundation to support decarbonization and sustainable resource management across air and space operations, throughout the entire lifecycle of aerospace systems.
+
+### 1.1 Purpose and Vision
+
+**Purpose:**
+To enable consistent, comparable, and accurate accounting and reduction of CO₂ emissions and resource impacts within the global aerospace sector. The framework provides standardized metrics, methodologies, visualization tools, strategic implementation plans, and specific approaches like material substitution to drive sustainable practices.
+
+**Vision:**
+To foster a collaborative aerospace ecosystem where environmental sustainability is integral to design, manufacturing, operation, and end-of-life management, leading to significant reductions in CO₂ emissions and dependence on critical resources, thereby contributing to global climate goals and enhancing long-term industry resilience.
+
+### 1.2 Strategic Objectives
+
+The GA-SToP-CO2 framework aims to achieve the following strategic objectives:
+
+1.  **Standardization**: Establish GA-SToP-CO2 as the industry standard for aerospace emissions (CO₂) and resource criticality measurement, reporting, and management.
+2.  **Integration**: Embed the framework into existing business processes, design practices, operational procedures, and decision-making across the value chain.
+3.  **Collaboration**: Foster cross-sector partnerships and stakeholder engagement to address systemic decarbonization and resource challenges.
+4.  **Innovation**: Accelerate the development, assessment, and deployment of low-carbon technologies and resource-efficient solutions, including material substitutions.
+5.  **Transparency**: Enable consistent, comparable, and verifiable emissions and resource impact reporting across the value chain.
+
+### 1.3 Scope
+
+The framework applies to:
+-   Air and space operations.
+-   The entire lifecycle of aerospace products, systems, and services, from raw material extraction, design, and manufacturing through to operations, maintenance, and end-of-life (including disposal and recycling).
+-   CO₂ emissions and other greenhouse gases (reported as CO₂ equivalent where applicable).
+-   Resource criticality, including material scarcity, supply risk, environmental impact of extraction, and circularity.
+
+## 2. Core Metrics for Sustainability Assessment
+
+The GA-SToP-CO2 framework defines two primary sets of metrics: CO₂ Emissions Metrics and Resource Criticality Metrics.
+
+### 2.1 Standardized CO₂ Emissions Metrics (derived from GP-FD-07-002-SPEC-A)
+
+These metrics establish a common quantitative foundation for CO₂ emissions.
+
+#### 2.1.1 Absolute CO₂ Emissions
+-   **Definition**: Total mass of CO₂ emitted directly or indirectly by a defined system within specified boundaries and time period.
+-   **Unit**: Metric tonnes of CO₂ (tCO₂).
+-   **Calculation**: `ACE = Σ(AF_i × EF_i)` where AF is Activity Factor and EF is Emission Factor.
+
+#### 2.1.2 CO₂ Intensity
+-   **Definition**: CO₂ emissions normalized by a functional unit (e.g., gCO₂/Revenue Passenger Kilometer (RPK), kgCO₂/kg payload to orbit, kgCO₂/aircraft turnaround, tCO₂/aircraft produced).
+-   **Calculation**: `CI = ACE / FU` where FU is Functional Unit.
+
+#### 2.1.3 Well-to-Wake (WTW) CO₂ Emissions
+-   **Definition**: Lifecycle CO₂ emissions associated with energy carriers from resource extraction through end use.
+-   **Unit**: gCO₂e/MJ.
+-   **Calculation**: `WTW = WTT (Well-to-Tank) + TTW (Tank-to-Wake)`.
+
+#### 2.1.4 CO₂ Abatement Potential
+-   **Definition**: Estimated reduction in CO₂ emissions from a specific technology, operational measure, or policy relative to a baseline.
+-   **Unit**: tCO₂/year or percentage reduction.
+-   **Calculation**: `CAP = (BE - PE) / BE × 100%` where BE is Baseline Emissions and PE is Project Emissions.
+
+#### 2.1.5 Domain-Specific CO₂ Metrics
+The framework includes detailed metrics for:
+-   **Aircraft Propulsion**: Fuel Efficiency CO₂ Index (FECI), Alternative Propulsion CO₂ Reduction Factor (APCRF).
+-   **Spacecraft Propulsion**: Launch CO₂ Intensity (LCI), Space System Operational CO₂ (SSOC).
+-   **Ground Operations**: Ground Support Equipment CO₂ Intensity (GSECI), Hydrogen Infrastructure Carbon Intensity (HICI).
+-   **Lifecycle Assessment**: Product Carbon Footprint (PCF), Circular Economy CO₂ Benefit (CECB).
+
+### 2.2 Resource Criticality Metrics (derived from GP-FD-07-006-SPEC-A)
+
+These metrics quantify resource impacts and promote sustainable material management.
+
+#### 2.2.1 Critical Material Intensity (CMI)
+-   **Definition**: Mass of critical materials per functional unit, weighted by criticality factors.
+-   **Unit**: Weighted kilograms of critical material per functional unit (wkg/FU).
+-   **Calculation**: `CMI = Σ(M_i × CF_i) / FU` where M is mass of critical material and CF is Criticality Factor.
+-   **Criticality Factor (CF_i)**: Based on Supply Risk (SR), Geopolitical Risk (GR), Environmental Impact (ER), and Recyclability Risk (RR). `CF_i = (SR_i × GR_i × ER_i × RR_i)^(1/4)`.
+
+#### 2.2.2 Resource Circularity Indicator (RCI)
+-   **Definition**: Measure of the degree to which critical materials are sourced from and returned to the circular economy.
+-   **Unit**: Percentage (%).
+-   **Calculation**: `RCI = (RC + RR) / 2` where RC is Recycled Content and RR is Recyclability Rate.
+
+#### 2.2.3 Supply Chain Risk Index (SCRI)
+-   **Definition**: Assessment of the vulnerability of material supply chains.
+-   **Unit**: Dimensionless index (0-100).
+-   **Calculation**: `SCRI = Σ(M_i,rel × SR_i × GC_i)` where M\_i,rel is relative importance of material, SR is Supply Risk, and GC is Geographic Concentration.
+
+#### 2.2.4 Resource Efficiency Index (REI)
+-   **Definition**: Efficiency with which critical materials are utilized compared to a reference system.
+-   **Unit**: Percentage (%).
+-   **Calculation**: Compares weighted critical material use per functional unit against a reference system.
+
+#### 2.2.5 Domain-Specific Resource Metrics
+Metrics are specified for:
+-   **Aircraft Materials**: Airframe Critical Material Intensity (ACMI), Propulsion System Material Criticality (PSMC).
+-   **Spacecraft Materials**: Spacecraft Critical Material Intensity (SCMI), Propellant Resource Impact Factor (PRIF).
+-   **Electronics and Avionics**: Avionics Critical Material Density (ACMD), Electronics Recyclability Index (ERI).
+-   **Manufacturing and Production**: Manufacturing Material Efficiency (MME), Critical Material Scrap Recovery Rate (CMSRR).
+
+## 3. Analyzing and Visualizing Technology-to-Impact Relationships (derived from GP-FD-07-003-FIG-A)
+
+Visual representations are critical tools for understanding complex interdependencies within the GA-SToP-CO2 framework.
+
+### 3.1 Purpose of Relationship Diagrams
+-   Visualize causal relationships between technologies, systems, operational practices, and environmental (CO₂ and resource) impacts.
+-   Map dependencies between technological systems.
+-   Identify critical pathways for decarbonization and resource impact reduction.
+-   Highlight potential synergies and trade-offs.
+-   Support cross-domain optimization and decision-making.
+
+### 3.2 Diagram Conventions
+Standardized notation is used for:
+-   **Relationship Types**: e.g., `impacts (→)`, `requires (⇒)`, `contributes_to (⇢)`, `measured_by (⊢)`.
+-   **Node Types**: e.g., Technology (Rectangle), Process (Rounded Rectangle), Metric (Diamond), Impact (Hexagon).
+-   **Color Coding**: To indicate domain and sustainability impact.
+
+### 3.3 Example Diagram Applications
+The framework utilizes diagrams such as:
+-   Propulsion Technology Impact Networks (showing CO₂ emissions of different propulsion options).
+-   Value Chain Emissions Maps (e.g., for Hydrogen, illustrating emissions across production, storage, distribution, and utilization).
+-   Technology Dependency Maps (e.g., for aircraft propulsion, showing enabling sub-technologies).
+-   Emissions Reduction Pathway Diagrams (illustrating temporal evolution of technologies and their impact).
+-   Infrastructure System Maps (e.g., for hydrogen or GSE electrification).
+-   Lifecycle Carbon Footprint Maps and Circular Economy Impact Diagrams.
+-   Cross-System Optimization and Technology Readiness/Impact Assessments.
+
+These diagrams integrate with the metrics defined in Section 2.
+
+## 4. Strategic Frameworks for Impact Reduction
+
+Beyond metrics and visualization, GA-SToP-CO2 provides specific strategic frameworks.
+
+### 4.1 Material Substitution Framework for Critical Resources (derived from GP-FD-07-007-SPEC-A)
+
+This framework provides a systematic approach to reduce dependence on critical materials.
+
+#### 4.1.1 Six-Phase Substitution Assessment Process
+1.  **Phase 1: Criticality Screening**: Identify and prioritize materials based on criticality and organizational exposure (`Exposure_i = M_i × CF_i × BI_i`).
+2.  **Phase 2: Substitution Candidate Identification**: Identify potential substitutes through functional analysis and various substitution strategies (direct, partial, functional, system redesign).
+3.  **Phase 3: Technical Performance Assessment**: Evaluate candidates against reference scenarios (baseline, best available tech, theoretical minimum, regulatory minimum, application-specific).
+4.  **Phase 4: Multi-criteria Evaluation**: Evaluate candidates across technical performance, resource criticality reduction, environmental impact (LCA), economic viability (TCO), supply chain resilience, implementation feasibility, and regulatory compliance, using weighting and scoring with uncertainty quantification.
+5.  **Phase 5: Implementation Planning**: Develop implementation strategy, technology maturation roadmap, and risk assessment.
+6.  **Phase 6: Validation and Monitoring**: Conduct validation testing and monitor ongoing performance with KPIs.
+
+#### 4.1.2 Key Supporting Elements
+-   **Reference Scenarios**: Standardized scenarios for baseline, application-specific, and lifecycle phase assessments.
+-   **Aggregation Protocols**: Hierarchical framework (Component to Sector) for data aggregation (bottom-up, top-down, hybrid).
+-   **Uncertainty Quantification**: Addressing parameter, model, scenario, and data quality uncertainty using methods like Monte Carlo simulation and sensitivity analysis.
+-   **Technology Contribution Analysis**: Categorizing technologies and attributing impacts to understand relative contributions and guide roadmapping.
+
+### 4.2 Other Implied Strategic Approaches
+The framework implicitly supports other strategies through its metrics and analytical tools:
+-   **Circular Economy Implementation**: Promoted by RCI, CECB, and material recovery metrics.
+-   **Sustainable Aviation Fuel (SAF) Adoption**: Quantified by Well-to-Wake metrics and APCRF.
+-   **Hydrogen Transition**: Supported by HICI and Well-to-Wake metrics for hydrogen pathways.
+-   **Operational Efficiency Improvements**: Measured by intensity metrics.
+-   **Advanced Technology Development**: Guided by CO₂ Abatement Potential and various domain-specific performance metrics.
+
+## 5. Implementation and Adoption of GA-SToP-CO2 (derived from GP-FD-07-004-PLAN-A)
+
+A comprehensive strategy is defined for the adoption and implementation of the GA-SToP-CO2 framework.
+
+### 5.1 Phased Implementation Roadmap (Illustrative 5-Year Plan)
+1.  **Phase 1: Foundation (Months 1-6)**: Establish core infrastructure, documentation, toolkits, governance, pilot recruitment, training development, and baseline measurements.
+2.  **Phase 2: Early Adoption (Months 7-18)**: Implement in pilot organizations, collect feedback, refine methodologies, develop case studies, expand training, and engage regulators.
+3.  **Phase 3: Scaling (Months 19-36)**: Expand industry adoption, integrate with business systems, develop benchmarks, establish certification, engage financial institutions, and build automated tools.
+4.  **Phase 4: Institutionalization (Months 37-60)**: Achieve critical mass, integrate into regulatory requirements, establish continuous improvement, measure industry-wide impact, and transfer governance.
+    *(A Gantt chart visualizes this timeline in GP-FD-07-004-PLAN-A.)*
+
+### 5.2 Stakeholder Analysis and Engagement
+-   **Key Stakeholder Groups Identified**: Aircraft Manufacturers, Airlines, Aerospace Suppliers, Airports & Ground Operations, Research Institutions, Regulatory Bodies, Industry Associations, Investors & Financiers.
+-   **Engagement Strategy**: Based on principles of early involvement, tailored communication, collaborative development, transparency, and continuous feedback, using methods like executive briefings, technical workshops, forums, working groups, digital platforms, and training.
+
+### 5.3 Adoption Enablers and Resources
+-   **Implementation Toolkit**: Includes guides, calculators (e.g., Metrics Calculator, GMCC), templates, training modules, case studies, integration guides, and verification protocols. Tailored resources for specific stakeholder groups are also planned.
+-   **Training and Capability Building**: Structured training programs (Executive Overview, Implementation Manager, Technical Practitioner, etc.) delivered via various methods (in-person, virtual, self-paced online, train-the-trainer).
+-   **Digital Platform**: A central hub for resources, calculation tools, community forums, progress tracking, expert directories, data exchange, and benchmarking.
+
+### 5.4 Adoption Barriers and Mitigation
+Identified barriers (technical, organizational, market/ecosystem) are addressed through specific mitigation strategies, including phased data requirements, integration support, business case development, regulatory engagement, and stakeholder consultation.
+
+### 5.5 Governance and Support Structure
+-   **Implementation Governance**: A multi-tiered structure including a Steering Committee, Implementation Working Group, Technical Working Group, Stakeholder Engagement Group, Program Management Office, and Sector Implementation Teams. *(A diagram illustrates this in GP-FD-07-004-PLAN-A.)*
+-   **Support Mechanisms**: Technical helpdesks, implementation coaching, peer learning groups, expert networks, and problem-solving workshops.
+
+### 5.6 Measuring Adoption Success and Risk Management
+-   **Key Performance Indicators (KPIs)**:
+    -   **Adoption Metrics**: Organizational adoption rate, market coverage, implementation completeness, geographic coverage.
+    -   **Impact Metrics**: Emissions visibility, emissions reduction, technology acceleration, investment alignment, policy influence.
+-   **Monitoring and Reporting**: Regular dashboards, stakeholder updates, annual progress reports.
+-   **Risk Management**: Identification, assessment, and mitigation of implementation risks with contingency planning.
+
+### 5.7 Long-Term Sustainability and Evolution
+-   **Transition to Business as Usual**: Integrating the framework into product development, operations, supply chain, financial planning, and strategic planning.
+-   **Evolving Governance**: Transitioning to a permanent industry body for maintenance and evolution.
+-   **Continuous Evolution**: Regular review cycles, monitoring of technology and regulations, user feedback, and version management.
+
+## 6. Cross-Cutting Requirements and Principles
+
+Several requirements and principles are fundamental to the effective application of the entire GA-SToP-CO2 framework:
+
+### 6.1 Data Collection, Management, and Quality
+-   Emphasis on primary data, clear system boundaries, and temporal/geographical representativeness.
+-   Requirements for material inventories, BOM tracing, and Material Flow Analysis.
+-   Use of centralized data repositories/databases with version control, automated validation, audit trails, and security.
+-   Data quality indicators and minimum coverage requirements (detailed in Appendices of source documents like GP-FD-07-002-SPEC-A and GP-FD-07-006-SPEC-A).
+
+### 6.2 Calculation Tools, Methods, and Verification
+-   Approval of specific calculation tools (e.g., GAIA Carbon Calculator, GAIA Material Criticality Calculator, OpenLCA).
+-   Documented step-by-step calculation procedures for each metric.
+-   Requirements for tool validation, sensitivity analysis, uncertainty quantification, transparency, and version control.
+
+### 6.3 Reporting, Documentation, and Assurance
+-   Minimum reporting requirements including boundaries, methodologies, data sources, uncertainty, and comparisons.
+-   Standardized reporting templates (examples in JSON format are provided in source document Appendices).
+-   Procedures for internal and third-party verification and assurance.
+
+### 6.4 Integration with International Standards
+The framework is designed to align and be compatible with:
+-   **CO₂ Emissions**: ISO 14064-1, ICAO CORSIA, Greenhouse Gas Protocol, ISO 14067, IATA RP 1678.
+-   **Resource Criticality & LCA**: ISO 14040/14044, ISO 14009, EC Critical Raw Materials Assessment, UNEP IRP Guidelines.
+-   **Material Substitution**: ASTM standards, SAE AMS, MMPDS, CMH-17.
+
+### 6.5 Uncertainty Management
+A comprehensive approach to uncertainty is crucial:
+-   **Quantification**: Parameter, model, and scenario uncertainty assessed using methods like Monte Carlo simulations. Combined uncertainty reported.
+-   **Management**: Sensitivity analysis, conservative adjustment factors, and strategies for uncertainty reduction.
+-   **Communication**: Clear reporting of uncertainty analysis results and limitations.
+-   (GP-FD-07-007-SPEC-A Section 5 details an enhanced uncertainty quantification framework).
+
+### 6.6 Continuous Improvement
+An iterative approach to framework development:
+-   Annual review of metric definitions, methodologies, and tools.
+-   Mechanisms for stakeholder feedback.
+-   Monitoring of scientific, technological, and regulatory developments.
+-   Prioritization of data quality improvements and research for methodology enhancement.
+
+Below is a **clean, consolidated version** of the **GP-FD-07-003-FIG-A.md** document, incorporating the technology-to-impact relationship diagrams and annotations you provided. This final version is ready for internal review and subsequent inclusion in the GA-SToP-CO2 documentation system.
 
 ---
 
-## 🛰️ Overview
 
-This repository hosts the landing interface for the **GAIA-QAO Federated Quantum Aerospace Organization**, including:
+---
+title: Technology-to-Impact Relationship Diagrams
+id: GP-FD-07-003-FIG-A
+version: 1.0.0
+date: 2025-05-10
+authors: [GAIA Quantum Aerospace Technical Team]
+reviewers: [Systems Integration Working Group, Sustainability Integration Board]
+approvers: [Chief Technology Officer, Chief Sustainability Officer]
+tags: [relationships, visualization, technology-mapping, impact-assessment, systems-thinking]
+related: [GP-FD-07-001-OV-A, GP-FD-07-002-SPEC-A, GP-FD-07-004-PLAN-A, GP-AM-ATA72-0200-001-SPEC-A, GP-GRO-H2-0402-001-OV-A]
+sustainability_impact: direct
+co2_reduction_potential: high
+---
 
-- Public and internal status visibility (AGAD 10/1 and beyond)
-- Federated organizational structure rendering
-- Core documentation & ontology links
-- Real-time or simulated system reporting via MCP fetch interface
+# Technology-to-Impact Relationship Diagrams
+
+> **DISCLAIMER: GenAI Proposal Status**  
+> This document was generated with assistance from artificial intelligence and represents a proposed structure for the GAIA AIR AMPEL360XWLRGA COAFI documentation system. It should be reviewed by subject matter experts before implementation in any operational context.
+
+## 1. Introduction
+
+This document provides **visual representations** of the key relationships between technologies, systems, operational practices, and environmental impacts within the **GA-SToP-CO2** framework. These relationship diagrams serve as critical tools for:
+
+- Understanding **complex interdependencies**  
+- Identifying **optimization opportunities**  
+- Supporting **decision-making** across the aerospace value chain  
+
+Using standardized notation and systems engineering principles, these diagrams ensure clarity, consistency, and actionability. They are designed as **living documents** that evolve as technologies mature and new relationships emerge.
+
+### 1.1 Purpose and Scope
+
+This document:
+- **Visualizes** causal relationships between technologies and CO₂ emissions  
+- **Maps** dependencies between different technological systems  
+- **Identifies** critical pathways for decarbonization  
+- **Highlights** potential synergies and trade-offs  
+- **Supports** cross-domain optimization  
+
+### 1.2 Diagram Types and Notation
+
+#### 1.2.1 Relationship Types
+
+| Relationship    | Symbol | Description                                        |
+|-----------------|--------|----------------------------------------------------|
+| **impacts**     | →      | Direct causal effect (positive or negative)        |
+| **requires**    | ⇒      | Dependency relationship                            |
+| **contributes_to** | ⇢   | Positive correlation or contribution               |
+| **measured_by** | ⊢      | Measurement or quantification relationship         |
+| **regulated_by**| ⊨      | Governance or regulatory relationship              |
+| **trade_off**   | ⇄      | Inverse relationship or competing objectives       |
+| **synergy**     | ⇆      | Mutually reinforcing relationship                  |
+
+#### 1.2.2 Node Types
+
+| Node Type   | Visual            | Description                                          |
+|-------------|-------------------|------------------------------------------------------|
+| **Technology** | Rectangle         | Technical systems or components                     |
+| **Process**    | Rounded Rectangle | Operational processes or activities                 |
+| **Metric**     | Diamond           | Quantitative measures or indicators                 |
+| **Impact**     | Hexagon           | Environmental or performance outcomes               |
+| **Enabler**    | Oval              | Supporting infrastructure or capabilities           |
+| **Policy**     | Octagon           | Regulatory or governance elements                   |
+
+#### 1.2.3 Color Coding
+
+| Color   | Domain            | Sustainability Impact         |
+|---------|-------------------|-------------------------------|
+| **Green**  | Cross-cutting     | High positive impact            |
+| **Blue**   | Air Systems       | Medium positive impact          |
+| **Purple** | Space Systems     | Low positive impact             |
+| **Orange** | Ground Operations | Neutral impact                  |
+| **Yellow** | Supply Chain      | Low negative impact             |
+| **Red**    | Any               | High negative impact            |
 
 ---
 
-## 📁 Directory Structure
+## 2. Cross-Domain Relationship Maps
+
+### 2.1 Propulsion Technology Impact Network
+
+```mermaid
+graph TD
+    A["Conventional Turbofan"] -->|"3.67 kgCO₂e/kg"| B["CO₂ Emissions"]
+    C["Hybrid-Electric Propulsion"] -->|"2.20 kgCO₂e/kg"| B
+    D["Hydrogen Combustion"] -->|"1.20 kgCO₂e/kg"| B
+    E["Hydrogen Fuel Cell"] -->|"0.45 kgCO₂e/kg"| B
+    
+    C ==>|"requires"| F["Battery Technology"]
+    C ==>|"requires"| G["Power Electronics"]
+    D ==>|"requires"| H["H₂ Storage Systems"]
+    D ==>|"requires"| I["H₂ Infrastructure"]
+    E ==>|"requires"| H
+    E ==>|"requires"| I
+    E ==>|"requires"| J["Fuel Cell Systems"]
+    
+    F -->|"impacts"| K["Aircraft Weight"]
+    H -->|"impacts"| K
+    K -->|"impacts"| L["Fuel Efficiency"]
+    L -->|"impacts"| B
+    
+    M["Sustainable Aviation Fuel"] -->|"2.10-3.50 kgCO₂e/kg"| B
+    M ==>|"requires"| N["Biomass Feedstock"]
+    M ==>|"requires"| O["SAF Production"]
+    
+    P["Electric Propulsion"] -->|"0.05-0.48 kgCO₂e/kg"| B
+    P ==>|"requires"| F
+    P ==>|"requires"| Q["Renewable Energy"]
+    
+    R["CORSIA"] -.->|"regulates"| B
+    S["EU ETS"] -.->|"regulates"| B
+    
+    T["Well-to-Wake Metric"] -.->|"measures"| B
+    U["FECI Metric"] -.->|"measures"| L
+    
+    classDef technology fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef impact fill:#ffcccc,stroke:#333,stroke-width:1px;
+    classDef enabler fill:#ccffcc,stroke:#333,stroke-width:1px;
+    classDef metric fill:#ccccff,stroke:#333,stroke-width:1px;
+    classDef regulation fill:#ffffcc,stroke:#333,stroke-width:1px;
+    
+    class A,C,D,E,M,P technology;
+    class B,K,L impact;
+    class F,G,H,I,J,N,O,Q enabler;
+    class T,U metric;
+    class R,S regulation;
+````
+
+**Figure 2.1:** **Propulsion Technology Impact Network** illustrating the relationships among various propulsion technologies, their enabling components, and regulatory frameworks—along with how each impacts CO₂ emissions.
+
+### 2.2 Hydrogen Value Chain Emissions Map
+
+```mermaid
+graph LR
+    subgraph Production
+    A1["Gray H₂ - Steam Methane Reforming\n9.50 kgCO₂e/kgH₂"]
+    A2["Blue H₂ - SMR + Carbon Capture\n1.20 kgCO₂e/kgH₂"]
+    A3["Green H₂ - Electrolysis\n0.45 kgCO₂e/kgH₂"]
+    end
+
+    subgraph Storage
+    B1["Gaseous Storage - 350 bar"]
+    B2["Gaseous Storage - 700 bar"]
+    B3["Liquid H₂ Storage"]
+    B4["Chemical Storage - LOHC"]
+    end
+
+    subgraph Distribution
+    C1["Pipeline Transport"]
+    C2["Truck Transport - Gaseous"]
+    C3["Truck Transport - Liquid"]
+    end
+
+    subgraph Utilization
+    D1["H₂ Combustion - Aircraft"]
+    D2["Fuel Cell - Aircraft"]
+    D3["Fuel Cell - Ground Support"]
+    end
+
+    A1 --> M1["Well-to-Wake Metric"]
+    A2 --> M1
+    A3 --> M1
+
+    A1 --> B1
+    A2 --> B2
+    A3 --> B3
+    B4 -.-> A3
+    B1 --> C1
+    B1 --> C2
+    B3 --> C3
+    B4 --> C2
+    C1 --> D1
+    C2 --> D2
+    C3 --> D3
+
+    subgraph Metrics
+    M1["HICI Metric"]
+    end
+```
+
+**Figure 2.2:** **Hydrogen Value Chain Emissions Map** depicting production pathways (gray, blue, green hydrogen), storage options, distribution modes, and utilization technologies—each with its associated emissions metric.
+
+---
+
+## 3. Air Systems Relationship Diagrams
+
+### 3.1 Aircraft Propulsion Technology Dependency Map
+
+```mermaid
+flowchart LR
+    subgraph Hybrid-Electric Propulsion
+    A["High-Energy Density Batteries"]
+    B["Power Electronics"]
+    C["Thermal Management Systems"]
+    D["Electric Motors"]
+    A -->|requires| E["Advanced Cell Chemistry"]
+    A -->|requires| F["Battery Management Systems"]
+    B -->|requires| G["SiC/GaN Semiconductors"]
+    B -->|requires| H["High-Frequency Converters"]
+    C -->|requires| I["Heat Exchangers"]
+    C -->|requires| J["Cooling Fluids"]
+    D -->|requires| K["High-Power Density Motors"]
+    D -->|requires| L["Superconducting Technology"]
+    end
+
+    subgraph Hydrogen Combustion
+    M["H₂ Fuel Systems"]
+    N["Modified Combustors"]
+    O["Cryogenic Systems"]
+    M -->|requires| P["Lightweight Tanks"]
+    M -->|requires| Q["Fuel Delivery Systems"]
+    N -->|requires| R["Low-NOx Technology"]
+    N -->|requires| S["Flame Stability Systems"]
+    O -->|requires| T["Insulation Technology"]
+    O -->|requires| U["Boil-off Management"]
+    end
+
+    subgraph Fuel Cell Propulsion
+    V["PEM Fuel Cells"]
+    W["Electric Drivetrain"]
+    V -->|requires| X["Membrane Technology"]
+    V -->|requires| Y["Catalyst Systems"]
+    end
+```
+
+**Figure 3.1:** **Aircraft Propulsion Technology Dependency Map** highlighting hierarchical dependencies between propulsion system configurations and their enabling technologies.
+
+### 3.2 Aircraft Emissions Reduction Pathway
+
+```mermaid
+flowchart LR
+    A["Current Aircraft Fleet"] --> B["Fleet Renewal"]
+    B --> C["Operational Improvements"]
+    B --> D["SAF Implementation"]
+    D --> E["Next-Generation Aircraft"]
+    E --> F["Hybrid-Electric Aircraft"]
+    E --> G["Hydrogen-Powered Aircraft"]
+
+    F --> H["Reduced CO₂ Emissions"]
+    G --> H
+
+    subgraph Timeline
+    T1[2020] --> T2[2030] --> T3[2035] --> T4[2040] --> T5[2050]
+    end
+
+    subgraph Metrics
+    M1["APCRF Metric"]
+    M2["FECI Metric"]
+    end
+
+    H --> M1
+    F --> M2
+```
+
+**Figure 3.2:** **Aircraft Emissions Reduction Pathway** illustrating the temporal evolution of aircraft technologies (fleet renewal → next-generation aircraft) and associated emissions savings, with relevant metrics noted.
+
+---
+
+## 4. Ground Operations Relationship Diagrams
+
+### 4.1 Hydrogen Infrastructure System Map
+
+```mermaid
+flowchart LR
+    A["Hydrogen Production"] --> B["Hydrogen Storage"]
+    B --> C["Hydrogen Distribution"]
+    C --> D["Aircraft Refueling"]
+    C --> E["Ground Support Equipment"]
+
+    A -->|enables| F["On-site Electrolysis"]
+    C -->|enables| G["Pipeline Delivery"]
+    C -->|enables| H["Truck Delivery"]
+    B -->|impacts| I["Gaseous Storage"]
+    B -->|impacts| J["Liquid Storage"]
+    D -->|impacts| K["Aircraft Operations"]
+    E -->|impacts| L["Ground Operations"]
+
+    subgraph Metrics
+    M["HICI Metric"]
+    N["GSECI Metric"]
+    O["FECI Metric"]
+    end
+
+    B --> M
+    E --> N
+    D --> O
+```
+
+**Figure 4.1:** **Hydrogen Infrastructure System Map** outlining hydrogen production, storage, and distribution for ground operations—along with relevant impact metrics.
+
+### 4.2 Ground Support Equipment Electrification Impact
+
+```mermaid
+flowchart LR
+    A["Conventional GSE Fleet"] -->|reduces CO₂| B["GSE Electrification"]
+    B --> C["Electric Ground Power Units"]
+    B --> D["Electric Pushback Tractors"]
+    B --> E["Electric Baggage Tractors"]
+    B --> F["Electric Belt Loaders"]
+
+    C -->|requires| G["Grid Electricity"]
+    C -->|enables| H["Battery Technology"]
+    G --> I["Indirect CO₂ Emissions"]
+
+    D -->|requires| H
+    E -->|requires| H
+    F -->|requires| H
+
+    subgraph Metrics
+    J["GSECI Metric"]
+    end
+
+    B --> J
+```
+
+**Figure 4.2:** **Ground Support Equipment Electrification Impact** illustrating the direct emissions reduction from electrification and dependencies on grid electricity and battery technology.
+
+---
+
+## 5. Lifecycle Assessment Relationship Diagrams
+
+### 5.1 Aircraft Lifecycle Carbon Footprint Map
+
+```mermaid
+flowchart LR
+    A["Raw Materials"] --> B["Manufacturing"]
+    B --> C["Operations"]
+    C --> D["Maintenance"]
+    D --> E["End-of-Life"]
+
+    A -->|contributes| F["Total Carbon Footprint"]
+    B -->|contributes| F
+    C -->|contributes| F
+    D -->|contributes| F
+    E -->|contributes| F
+
+    subgraph Metrics
+    G["PCF Metric"]
+    H["CECB Metric"]
+    end
+
+    F --> G
+    E --> H
+```
+
+**Figure 5.1:** **Aircraft Lifecycle Carbon Footprint Map** showing major lifecycle phases and their respective contributions to the overall carbon footprint, alongside relevant LCA-based metrics.
+
+### 5.2 Circular Economy Strategies Impact
+
+```mermaid
+flowchart LR
+    A["Linear Economy Model"] --> B["Raw Material Extraction"]
+    B --> C["Manufacturing"]
+    C --> D["Use Phase"]
+    D --> E["Disposal"]
+
+    A -->|"feeds back to"| F["Circular Economy Model"]
+
+    subgraph Circular Strategies
+    G["Sustainable Material Sourcing"]
+    H["Efficient Manufacturing"]
+    I["Extended Use Phase"]
+    J["End-of-Life Recovery"]
+    K["Design for Disassembly"]
+    L["Remanufacturing"]
+    end
+
+    G -->|"reduces"| B
+    H -->|"reduces"| C
+    I -->|"reduces"| D
+    J -->|"reduces"| E
+    K -->|"enables"| L
+    L -->|"reduces"| B
+
+    subgraph Metrics
+    M["CECB Metric"]
+    end
+
+    G --> M
+```
+
+**Figure 5.2:** **Circular Economy Strategies Impact** demonstrating how circular principles (sustainable sourcing, remanufacturing, etc.) can lower overall resource demand and emissions compared to the linear model.
+
+---
+
+## 6. Cross-System Optimization Opportunities
+
+### 6.1 Hydrogen System Integration Optimization
+
+```mermaid
+flowchart LR
+    A["Production Optimization"]
+    B["Storage Optimization"]
+    C["Distribution Optimization"]
+    D["Utilization Optimization"]
+
+    subgraph Hydrogen System Integration
+    A -->|"Ren. Energy"| F["Renewable Energy Integration"]
+    B -->|"Tech Selection"| G["Storage Technology Selection"]
+    C -->|"Network Design"| H["Distribution Network Design"]
+    D -->|"Operational Proc."| I["Aircraft + Ground Equip."]
+    end
+
+    subgraph System-Level Metrics
+    J["Well-to-Wake Efficiency"]
+    K["Total CO₂ Footprint"]
+    L["System Reliability"]
+    M["Economic Viability"]
+    end
+
+    A --> J
+    B --> K
+    C --> L
+    D --> M
+```
+
+**Figure 6.1:** **Hydrogen System Integration Optimization** illustrating how various optimizations (production, storage, distribution, and utilization) can enhance system-level efficiency and lower CO₂ footprints.
+
+### 6.2 Technology Readiness and Impact Assessment
+
+```mermaid
+flowchart LR
+    A["Technology Readiness Level\nTRL 1-3: Research\nTRL 4-6: Development\nTRL 7-9: Deployment"]
+    B["CO₂ Reduction Potential\nHigh: >50%\nMedium: 20-50%\nLow: <20%"]
+    C["Implementation Timeframe\nNear-term: <5 years\nMid-term: 5-15 years\nLong-term: >15 years"]
+
+    subgraph Technology Portfolio
+    D["Sustainable Aviation Fuels"]
+    E["Aircraft Efficiency Improvements"]
+    F["Hybrid-Electric Propulsion"]
+    G["Hydrogen Propulsion"]
+    H["Operational Improvements"]
+    I["Ground Operations Electrification"]
+    end
+
+    D -->|assess TRL| A
+    E -->|assess impact| B
+    F -->|assess timeframe| C
+    G -->|assess TRL| A
+    H -->|assess impact| B
+    I -->|assess timeframe| C
+```
+
+**Figure 6.2:** **Technology Readiness and Impact Assessment** illustrating how different technologies map to readiness level, CO₂ reduction potential, and implementation timeframes—helping prioritize R\&D investments.
+
+---
+
+## 7. Implementation Guidance
+
+### 7.1 Using the Relationship Diagrams
+
+1. **Identify Critical Pathways**
+   Trace relationships to find the most effective routes to decarbonization.
+
+2. **Analyze Dependencies**
+   Highlight the enabling infrastructure, policies, or R\&D required for each technology.
+
+3. **Assess Trade-offs**
+   Weigh potential conflicts (e.g., weight vs. efficiency) or synergies (e.g., electrification + hydrogen).
+
+4. **Support Decision-Making**
+   Provide a visual context to guide technology investments, policy development, and operational strategies.
+
+5. **Communicate Complexity**
+   Present complex interconnections in an accessible format for diverse stakeholders.
+
+### 7.2 Integration with Metrics
+
+Each diagram aligns with the standardized metrics defined in **\[GP-FD-07-002-SPEC-A]**, ensuring both **qualitative (diagram-based)** and **quantitative (metric-based)** assessment. Key integration points include:
+
+* **Metric Placement**: Where in the diagram a given metric applies (e.g., CO₂ intensity in a propulsion diagram).
+* **Impact Quantification**: Diagrams show qualitative cause-and-effect; metrics provide the numerical evaluation.
+* **System Boundaries**: Diagram nodes align with the system boundaries in metrics calculations.
+* **Data Flow**: Can trace how data are collected for metrics and aggregated into final reports.
+
+### 7.3 Updating Procedures
+
+1. **Regular Review**
+   Conduct quarterly reviews to align diagrams with new technologies or policy changes.
+
+2. **Technology Updates**
+   Incorporate emergent propulsion systems, fuels, or operational practices.
+
+3. **Metric Alignment**
+   Keep diagrams consistent with revised metrics from **\[GP-FD-07-002-SPEC-A]**.
+
+4. **Stakeholder Input**
+   Integrate feedback from domain experts and front-line implementers.
+
+5. **Version Control**
+   Log all edits and keep a comprehensive change history.
+
+---
+
+## 8. References
+
+1. **International Civil Aviation Organization (ICAO).** (2022). *CORSIA Implementation Elements.*
+2. **Air Transport Action Group (ATAG).** (2021). *Waypoint 2050: Balancing Growth in Connectivity with Climate Action.*
+3. **Hydrogen Council.** (2022). *Hydrogen Insights Report.*
+4. **International Energy Agency (IEA).** (2023). *The Future of Hydrogen.*
+5. **Clean Sky 2 Joint Undertaking.** (2020). *Hydrogen-Powered Aviation: A Fact-Based Study.*
+6. **European Union Aviation Safety Agency (EASA).** (2022). *European Aviation Environmental Report.*
+7. **GAIA Quantum Aerospace.** (2025). *AMPEL Sustainability Assessment Framework.*
+8. **Systems Engineering Body of Knowledge (SEBoK).** (2023). *Model-Based Systems Engineering.*
+
+---
+
+## Appendix A: Diagram Source Files
+
+All Mermaid Markdown (.mmd), SVG (.svg), Draw\.io XML (.drawio), and Enterprise Architect (.eap) source files for these diagrams are stored in:
+
+```
+/diagrams/GP-FD-07-003/
+```
+
+within the **GAIA-CO-ASD-LIB** repository.
+
+## Appendix B: Relationship Notation Reference
+
+| Visual Element          | Meaning                                 | Example                       |
+| ----------------------- | --------------------------------------- | ----------------------------- |
+| **Solid Arrow (→)**     | Direct causal relationship              | `Technology → Emissions`      |
+| **Double Arrow (⇒)**    | Dependency relationship                 | `System ⇒ Component`          |
+| **Dashed Arrow (- ->)** | Measurement or classification           | `Metric - -> Parameter`       |
+| **Bidirectional (↔)**   | Trade-off or balance                    | `Weight ↔ Performance`        |
+| **Box Colors**          | Domain classification                   | \[Section 1.2.3 Color Coding] |
+| **Box Shapes**          | Element type (technology, metric, etc.) | \[Section 1.2.2 Node Types]   |
+
+```plaintext
+<Actions>
+  <Action name="Develop Adoption Plan" description="Create the GP-FD-07-004-PLAN-A.md document outlining implementation strategy" />
+  <Action name="Create Ontology Versioning Procedures" description="Develop the GP-FD-07-005-PROC-A.md document for managing ontology updates" />
+  <Action name="Develop Lifecycle Emissions Model" description="Create the GP-SUPL-TRAC-0500-02-005-SDD-A.md document linking hydrogen production to lifecycle emissions" />
+  <Action name="Create Interactive Visualization Tool" description="Develop a tool to dynamically visualize and explore the relationship diagrams" />
+  <Action name="Implement Cross-Domain Optimization Analysis" description="Apply these relationship models to identify key optimization opportunities across domains" />
+</Actions>
+```
 
 ```
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Quantum Aerospace Organization</title>
-</head>
-<body>
+---
 
-  <h1>Quantum Aerospace Organization</h1>
-  <p><strong>Author:</strong> Amedeo Pelliccia</p>
-  <hr>
-
-  <h2>Quantum Aerospace Organization Structure</h2>
-  <p><strong>Quantum Aerospace Organization (GAIA‑QAO)</strong> model is composed of five main modules (or virtual teams), working in synergy across domains:</p>
-
-  <ul>
-    <li><strong>GAIA-Q‑AIR</strong>: Quantum-enhanced intelligent flight systems, avionics, and mission optimization.</li>
-    <li><strong>GAIA‑Q-SPACE</strong>: Orbital and vector systems, mechanics, satellite AI agents, and quantum-secure communication frameworks.</li>
-    <li><strong>GAIA-Q-GreenTech</strong>: Sustainable aerospace materials, energy efficiency models, and CO₂-reduction strategies.</li>
-    <li><strong>GAIA‑Q-HPC</strong>: High-performance computing infrastructure for quantum simulation, digital twins, and agentic orchestration.</li>
-    <li><strong>GAIA‑SCIREF</strong>: Scientific research team focusing on emerging technologies, ontology, ethics, and experimental models.</li>
-  </ul>
-
-  <hr>
-
-  <h3>Quick Access Footer Links</h3>
-  <ul>
-    <li><a href="https://github.com/enterprises/gaia-qao/gaia-air">Gaia‑Q-Air</a></li>
-    <li><a href="https://github.com/enterprises/gaia-qao/gaia-space">Gaia‑Q-Space</a></li>
-    <li><a href="https://github.com/enterprises/gaia-qao/gaia-greentech">Gaia‑Q-GreenTech</a></li>
-    <li><a href="https://github.com/enterprises/gaia-qao/gaia-hpc">Gaia‑Q-High‑Performance‑Computing</a></li>
-    <li><a href="https://github.com/enterprises/gaia-qao/gaia-sciref">Gaia‑Science-Research</a></li>
-  </ul>
+**End of Document**
+```
 
 
-
-  <h1>📊 Matriz AGAD ↔ TRL ↔ Registro Contextual</h1>
-  <p>Esta tabla forma parte del marco AGAD 3.2 y representa la relación entre fases de desarrollo, niveles TRL, datos registrados por AGAD-ID y artefactos V&amp;V en un ciclo aeronáutico completo.</p>
-
-  <table>
-    <caption>Fases AGAD, TRL y datos contextualizados</caption>
-    <thead>
-      <tr>
-        <th>Fase AGAD</th>
-        <th>Nombre de Fase Principal</th>
-        <th>Nivel TRL</th>
-        <th>Tipos de datos AGAD-ID registrados</th>
-        <th>Procesos de V&amp;V asociados</th>
-        <th>Ejemplo de Artefacto V&amp;V</th>
-      </tr>
-    </thead>
-    <tbody>
-    
-      <tr>
-        <td>AGAD 1/1</td><td>Concept Definition</td><td>1</td>
-        <td>Mission requirements, primary use-cases, initial feasibility</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>UseCaseReview – mission_concept_review_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/2</td><td>Concept Definition</td><td>2</td>
-        <td>High-level objectives, early design constraints</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>FeasibilityStudyReview – concept_feasibility_002.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/3</td><td>Concept Definition</td><td>3</td>
-        <td>Refinement of requirements, cost/performance estimates</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>ConceptModelReview – concept_model_v0.1_review.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/4</td><td>Concept Definition</td><td>4</td>
-        <td>Selection of base concept, preliminary functional architecture</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>ArchitectureReview – prelim_arch_review_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/5</td><td>Concept Definition</td><td>5</td>
-        <td>Project plan development, resource allocation, risk plan</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>ProjectPlanReview – project_plan_v0.1_review.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/6</td><td>Concept Definition</td><td>6</td>
-        <td>Proof-of-concept demos, early stakeholder feedback</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>PoC_DemoReview – concept_definition_report_006.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/7</td><td>Concept Definition</td><td>7</td>
-        <td>Environment demonstration, interface validation</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>EnvDemoReview – concept_env_demo_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/8</td><td>Concept Definition</td><td>8</td>
-        <td>System qualification review in operational context</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>SystemQualificationReview – concept_definition_report_008.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/9</td><td>Concept Definition</td><td>9</td>
-        <td>Simulated mission success review</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>MissionSuccessReview – concept_definition_report_009.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 1/10</td><td>Concept Definition</td><td>10</td>
-        <td>Final concept validation</td>
-        <td>Conceptual validation, use-case mapping</td>
-        <td>FinalConceptValidation – concept_definition_report_010.pdf</td>
-      </tr>
-
-      <!-- Phase 2: Preliminary Design -->
-      <tr>
-        <td>AGAD 2/1</td><td>Preliminary Design</td><td>1</td>
-        <td>Identification of main subsystems, trade-off studies, preliminary risk analysis</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>TradeStudyReview – arch_trade_study_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/2</td><td>Preliminary Design</td><td>2</td>
-        <td>Definition of subsystem interfaces, candidate technology selection, simulation models</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>InterfaceDefReview – prelim_interface_def_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/3</td><td>Preliminary Design</td><td>3</td>
-        <td>Subsystem functional specifications, preliminary performance analysis, supplier identification</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>SubsystemSpecReview – subsystem_func_spec_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/4</td><td>Preliminary Design</td><td>4</td>
-        <td>Initial critical component design, detailed cost analysis, prototype development plan</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>CriticalCompReview – crit_comp_design_v0.1.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/5</td><td>Preliminary Design</td><td>5</td>
-        <td>Prototyping of critical components/subsystems, lab PoC testing, simulation validation</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>LabPrototypeTest – prelim_poc_lab_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/6</td><td>Preliminary Design</td><td>6</td>
-        <td>Subsystem demonstration in relevant environment, interface validation, design refinement</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>SubsystemDemoReview – subsystem_env_demo_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/7</td><td>Preliminary Design</td><td>7</td>
-        <td>Integration of subsystems into representative prototype, functional testing</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>SystemPrototypeTest – system_prototype_func_test_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/8</td><td>Preliminary Design</td><td>8</td>
-        <td>Fully qualified system via tests/demos in operational environment (preliminary)</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>PrelimSystemQualReview – prelim_system_qual_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 2/9</td><td>Preliminary Design</td><td>9</td>
-        <td>Preliminary mission successfully demonstrated in operational environment</td>
-        <td>Trade-off studies, feasibility checks</td>
-        <td>PrelimMissionSuccess – prelim_mission_success_001.pdf</td>
-      </tr>
-
-      <!-- Phase 3: Analytical Modeling -->
-      <tr>
-        <td>AGAD 3/1</td><td>Analytical Modeling</td><td>1</td>
-        <td>High-level physical & mathematical model definitions, key parameter identification</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>ModelDefinitionReview – analytical_model_def_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/2</td><td>Analytical Modeling</td><td>2</td>
-        <td>Development of simulation scripts/software, initial model calibration</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>SimulationCodeReview – sim_code_v0.1_review.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/3</td><td>Analytical Modeling</td><td>3</td>
-        <td>Execution of functional simulations, sensitivity analysis of parameters</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>SimulationResultsAnalysis – func_sim_results_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/4</td><td>Analytical Modeling</td><td>4</td>
-        <td>Design optimization based on analytical models, identification of performance bottlenecks</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>DesignOptimizationReview – analytical_opt_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/5</td><td>Analytical Modeling</td><td>5</td>
-        <td>Verification of models against limited experimental data, model refinement</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>ModelVerificationData – model_exp_verification_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/6</td><td>Analytical Modeling</td><td>6</td>
-        <td>Failure Modes & Effects Analysis (FMEA) at conceptual level</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>FMEA_Review – conceptual_fmea_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/7</td><td>Analytical Modeling</td><td>7</td>
-        <td>Documentation of analytic model results, preparation for detailed design hand-off</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>DocumentationReview – analytical_model_docs_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/8</td><td>Analytical Modeling</td><td>8</td>
-        <td>Critical design review of analytical models, approval to proceed</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>CriticalDesignReview – analytical_cdr_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 3/9</td><td>Analytical Modeling</td><td>9</td>
-        <td>Final model validation, ready for detailed design input</td>
-        <td>Functional simulation, constraints testing</td>
-        <td>FinalModelValidation – final_analytical_model_validation.pdf</td>
-      </tr>
-
-      <!-- Phase 4: Detailed Design -->
-      <tr>
-        <td>AGAD 4/1</td><td>Detailed Design</td><td>1</td>
-        <td>Component specifications breakdown, detailed interface definitions (ICDs)</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>RequirementsBreakdownReview – component_spec_v0.1.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/2</td><td>Detailed Design</td><td>2</td>
-        <td>CAD models & schematics, final material/process selection</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>CADModelReview – component_cad_review_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/3</td><td>Detailed Design</td><td>3</td>
-        <td>FEA/CFD/thermal analyses of components, performance simulation</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>FEA_CFD_ResultsReview – component_analysis_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/4</td><td>Detailed Design</td><td>4</td>
-        <td>Verification of CAD against requirements, BOM generation</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>DesignVerificationMatrix – component_design_verif_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/5</td><td>Detailed Design</td><td>5</td>
-        <td>Prototype component fabrication & testing, interface checks</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>ComponentPrototypeTest – key_component_test_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/6</td><td>Detailed Design</td><td>6</td>
-        <td>Subsystem assembly design, integration & test planning</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>SubsystemAssemblyReview – subsystem_assembly_plan_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/7</td><td>Detailed Design</td><td>7</td>
-        <td>Complete detailed design documentation (drawings, specs, analysis)</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>FullDocReview – detailed_design_doc_package_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/8</td><td>Detailed Design</td><td>8</td>
-        <td>Critical design review (CDR) approval to proceed to manufacturing</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>CriticalDesignReview_Detailed – detailed_cdr_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 4/9</td><td>Detailed Design</td><td>9</td>
-        <td>Finalized, frozen design for production/integration</td>
-        <td>Subsystem modeling, interface V&amp;V</td>
-        <td>DesignFreezeConfirmation – design_freeze_confirm_001.pdf</td>
-      </tr>
-
-      <!-- Phase 5: Subsystem Integration -->
-      <tr>
-        <td>AGAD 5/1</td><td>Subsystem Integration</td><td>1</td>
-        <td>Subsystem integration planning, test environment setup, ICD procedures</td>
-        <td>ICD verification, agent comms test</td>
-        <td>IntegrationPlanReview – subsystem_integ_plan_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/2</td><td>Subsystem Integration</td><td>2</td>
-        <td>Fabrication/acquisition of subsystem components, incoming quality inspection</td>
-        <td>ICD verification, agent comms test</td>
-        <td>IncomingInspection – component_qc_pass_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/3</td><td>Subsystem Integration</td><td>3</td>
-        <td>Subsystem assembly, initial functional testing</td>
-        <td>ICD verification, agent comms test</td>
-        <td>SubsystemFunctionalTest – subsystem_func_test_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/4</td><td>Subsystem Integration</td><td>4</td>
-        <td>ICD-based integration, physical and logical interface verification</td>
-        <td>ICD verification, agent comms test</td>
-        <td>ICD_Verification – interface_verif_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/5</td><td>Subsystem Integration</td><td>5</td>
-        <td>Agent communication tests, data flow validation</td>
-        <td>ICD verification, agent comms test</td>
-        <td>AgentCommsTest – agent_comms_test_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/6</td><td>Subsystem Integration</td><td>6</td>
-        <td>Integrated subsystem performance tests in representative lab environment</td>
-        <td>ICD verification, agent comms test</td>
-        <td>IntegratedSubsystemTest – integ_subsystem_perf_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/7</td><td>Subsystem Integration</td><td>7</td>
-        <td>Documentation of integration results, issue identification and corrective actions</td>
-        <td>ICD verification, agent comms test</td>
-        <td>TestReportReview – subsystem_integ_final_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/8</td><td>Subsystem Integration</td><td>8</td>
-        <td>Integration review and approval to proceed to system-level integration</td>
-        <td>ICD verification, agent comms test</td>
-        <td>SubsystemIntegReview – subsystem_integ_approval_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 5/9</td><td>Subsystem Integration</td><td>9</td>
-        <td>Fully validated subsystems ready for system-level integration</td>
-        <td>ICD verification, agent comms test</td>
-        <td>SubsystemValidationComplete – subsystem_validation_complete_001.pdf</td>
-      </tr>
-
-      <!-- Phase 6: Functional Simulation -->
-      <tr>
-        <td>AGAD 6/1</td><td>Functional Simulation</td><td>1</td>
-        <td>Definition of functional simulation scenarios, HIL/SIL/VIL setup</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>SimulationScenarioReview – functional_simulation_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/2</td><td>Functional Simulation</td><td>2</td>
-        <td>Integration of quantum stubs and AI models into simulation</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>StubIntegrationTest – functional_simulation_report_002.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/3</td><td>Functional Simulation</td><td>3</td>
-        <td>Execution of full-system simulations, data collection</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>SimulationExecutionLog – functional_simulation_report_003.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/4</td><td>Functional Simulation</td><td>4</td>
-        <td>Analysis of simulation results against requirements</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>ResultsAnalysis – functional_simulation_report_004.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/5</td><td>Functional Simulation</td><td>5</td>
-        <td>Validation of HIL/SIL/VIL outputs, discrepancy identification</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>HIL_SIL_VIL_Validation – functional_simulation_report_005.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/6</td><td>Functional Simulation</td><td>6</td>
-        <td>Iterative simulation adjustments, performance optimization</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>IterativeSimReview – functional_simulation_report_006.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/7</td><td>Functional Simulation</td><td>7</td>
-        <td>Documentation of functional simulation validation</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>DocumentationReview – functional_simulation_report_007.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/8</td><td>Functional Simulation</td><td>8</td>
-        <td>Critical review of simulation outcomes, approval to prototype</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>FunctionalValidationReview – functional_simulation_report_008.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 6/9</td><td>Functional Simulation</td><td>9</td>
-        <td>Final simulation validation, ready for physical prototype</td>
-        <td>HIL/SIL/VIL validation, quantum stubs</td>
-        <td>SimValidationComplete – functional_simulation_report_009.pdf</td>
-      </tr>
-
-      <!-- Phase 7: Prototype Development -->
-      <tr>
-        <td>AGAD 7/1</td><td>Prototype Development</td><td>1</td>
-        <td>Prototype manufacturing plan, material acquisition, tooling preparation</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>ManufacturingPlanReview – prototype_mfg_plan_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/2</td><td>Prototype Development</td><td>2</td>
-        <td>Component and subsystem assembly, quality inspections</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>AssemblyInspection – prototype_assembly_qc_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/3</td><td>Prototype Development</td><td>3</td>
-        <td>Integration of full prototype, initial power-on and basic functional tests</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>PowerOnTest – prototype_power_on_test_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/4</td><td>Prototype Development</td><td>4</td>
-        <td>Execution of lab V&amp;V test plans, data collection</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>LabTestExecution – prototype_lab_test_data_001.csv</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/5</td><td>Prototype Development</td><td>5</td>
-        <td>Analysis of lab test results, comparison with simulation requirements</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>LabTestAnalysis – lab_test_analysis_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/6</td><td>Prototype Development</td><td>6</td>
-        <td>Identification and correction of prototype deviations, retesting</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>CorrectiveActionReview – prototype_fixes_retest_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/7</td><td>Prototype Development</td><td>7</td>
-        <td>Documentation of prototype build and test results</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>DocumentationReview – prototype_realization_docs_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/8</td><td>Prototype Development</td><td>8</td>
-        <td>Prototype review and approval to proceed to system validation</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>PrototypeReview – prototype_review_approval_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 7/9</td><td>Prototype Development</td><td>9</td>
-        <td>Complete, tested prototype ready for system-level validation</td>
-        <td>Lab tests, prototype V&amp;V procedures</td>
-        <td>PrototypeComplete – prototype_complete_validation_001.pdf</td>
-      </tr>
-
-      <!-- Phase 8: System Validation -->
-      <tr>
-        <td>AGAD 8/1</td><td>System Validation</td><td>1</td>
-        <td>System-level test plans, integrated test setups, audit checklists</td>
-        <td>System-level verification, audits</td>
-        <td>SystemValidationPlanReview – system_validation_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/2</td><td>System Validation</td><td>2</td>
-        <td>Prototype preparation for system testing, environmental chamber setups</td>
-        <td>System-level verification, audits</td>
-        <td>TestReadinessReview – system_val_readiness_002.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/3</td><td>System Validation</td><td>3</td>
-        <td>Execution of system validation tests, data acquisition</td>
-        <td>System-level verification, audits</td>
-        <td>SystemTestExecution – system_val_test_data_003.csv</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/4</td><td>System Validation</td><td>4</td>
-        <td>Analysis of test results against requirements, compliance checks</td>
-        <td>System-level verification, audits</td>
-        <td>ResultsComplianceAnalysis – system_val_compliance_004.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/5</td><td>System Validation</td><td>5</td>
-        <td>Internal system audits, documentation reviews</td>
-        <td>System-level verification, audits</td>
-        <td>InternalAudit – system_val_internal_audit_005.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/6</td><td>System Validation</td><td>6</td>
-        <td>Non-conformance identification and CAPA implementation</td>
-        <td>System-level verification, audits</td>
-        <td>CAPAReview – system_capa_log_006.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/7</td><td>System Validation</td><td>7</td>
-        <td>Comprehensive validation documentation, pre-certification prep</td>
-        <td>System-level verification, audits</td>
-        <td>DocumentationReview – system_val_docs_007.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/8</td><td>System Validation</td><td>8</td>
-        <td>Validation gate review and approval for certification testing</td>
-        <td>System-level verification, audits</td>
-        <td>SystemValidationGateReview – system_val_gate_008.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 8/9</td><td>System Validation</td><td>9</td>
-        <td>Complete system validated in representative environment</td>
-        <td>System-level verification, audits</td>
-        <td>SystemValidationComplete – system_val_final_009.pdf</td>
-      </tr>
-
-      <!-- Phase 9: Certification -->
-      <tr>
-        <td>AGAD 9/1</td><td>Certification</td><td>1</td>
-        <td>Regulatory compliance documentation, initial certification test results</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>CertificationPackageAudit – cert_package_submission_001.zip</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/2</td><td>Certification</td><td>2</td>
-        <td>Ground conformity tests with certifying authorities</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>GroundConformityTest – ground_conformity_witness_002.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/3</td><td>Certification</td><td>3</td>
-        <td>Certification flight tests, flight data collection for compliance</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>CertificationFlightTest – cert_flight_test_data_003.csv</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/4</td><td>Certification</td><td>4</td>
-        <td>Analysis of certification test data, regulatory compliance demonstration</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>DataAnalysisForCompliance – cert_compliance_report_004.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/5</td><td>Certification</td><td>5</td>
-        <td>Interaction logs with authorities, responses to findings</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>RegulatoryInteractionLog – authority_correspondence_005.log</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/6</td><td>Certification()</td><td>6</td>
-        <td>Implementation of required modifications per authority feedback</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>ModificationCompliance – cert_mod_compliance_006.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/7</td><td>Certification</td><td>7</td>
-        <td>Receipt of Type Certificate (TC) or equivalent authorization</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>TypeCertificateReceipt – type_certificate_scan_007.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/8</td><td>Certification</td><td>8</td>
-        <td>Final production documentation and entry-into-service planning</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>ProductionDocReview – final_production_docs_008.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 9/9</td><td>Certification</td><td>9</td>
-        <td>Aircraft certified and ready for serial production and deployment</td>
-        <td>Regulatory conformance, documentation</td>
-        <td>CertificationComplete – full_certification_summary_009.pdf</td>
-      </tr>
-
-      <!-- Phase 10: Operational Use -->
-      <tr>
-        <td>AGAD 10/1</td><td>Operational Use</td><td>1</td>
-        <td>Entry-into-service planning, support infrastructure setup</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>EntryIntoServicePlanReview – eis_plan_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 10/2</td><td>Operational Use</td><td>2</td>
-        <td>First aircraft deliveries, crew and ground staff training</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>DeliveryAcceptance – delivery_acceptance_002.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 10/3</td><td>Operational Use</td><td>3</td>
-        <td>Initial operational flights, in-service performance data collection</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>InitialOpDataCollection – op_data_003.csv</td>
-      </tr>
-      <tr>
-        <td>AGAD 10/4</td><td>Operational Use</td><td>4</td>
-        <td>Ongoing performance monitoring, comparison against predictions</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>PerformanceMonitoring – perf_monitoring_004.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 10/5</td><td>Operational Use</td><td>5</td>
-        <td>User feedback analysis from crews, maintenance teams, passengers</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>UserFeedbackAnalysis – feedback_summary_005.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 10/6</td><td>Operational Use</td><td>6</td>
-        <td>Implementation of minor updates and service bulletins</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>ServiceBulletinCompliance – sb_compliance_006.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 10/7</td><td>Operational Use</td><td>7</td>
-        <td>Operational and safety audits, continuous conformity checks</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>OperationalAudit – op_audit_007.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 10/8</td><td>Operational Use</td><td>8</td>
-        <td>Optimization of maintenance procedures and SOPs based on data</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>ProcedureOptimizationReview – sop_optimization_008.pdf</td>       	
-      </tr>
-      <tr>
-        <td>AGAD 10/9</td><td>Operational Use</td><td>9</td>
-        <td>Stable, mature operations with continuous improvement feeding the Digital Twin</td>
-        <td>Operational V&amp;V, user feedback loop</td>
-        <td>MatureOpsReview – mature_ops_009.pdf</td>
-      </tr>
-
-      <!-- Phase 11: Lifecycle Sustainment -->
-      <tr>  
-        <td>AGAD 11/1</td><td>Lifecycle Sustainment</td><td>1</td>
-        <td>Long-term support plan, obsolescence management, spare parts supply chain</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>LongTermSupportPlanReview – ltsp_v1.0.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 11/2</td><td>Lifecycle Sustainment</td><td>2</td>
-        <td>Continuous fleet health monitoring via Digital Twin, RUL prediction</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>FleetHealthMonitoring – fleet_rul_prediction_accuracy_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 11/3</td><td>Lifecycle Sustainment</td><td>3</td>
-        <td>Implementation of CBM (Condition-Based Maintenance) programs</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>CBM_EffectivenessReview – cbm_program_effectiveness_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 11/4</td><td>Lifecycle Sustainment</td><td>4</td>
-        <td>Major update and modernization planning and execution</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>UpgradeProgramValidation – upgrade_package_vv_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 11/5</td><td>Lifecycle Sustainment</td><td>5</td>
-        <td>Configuration management across the fleet, traceability maintenance</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>ConfigAudit – fleet_config_audit_001.pdf</td>        
-      </tr>
-      <tr>
-        <td>AGAD 11/6</td><td>Lifecycle Sustainment</td><td>6</td>
-        <td>Continuous Digital Twin alignment and model calibration</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>DigitalTwinAlignmentCheck – dt_alignment_accuracy_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 11/7</td><td>Lifecycle Sustainment</td><td>7</td>
-        <td>Lifecycle cost optimization and support profitability analysis</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>LCC_AnalysisReview – lifecycle_cost_optimization_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 11/8</td><td>Lifecycle Sustainment</td><td>8</td>
-        <td>End-of-life planning for fleet and individual components</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>EOL_PlanReview – end_of_life_plan_v1.0.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 11/9</td><td>Lifecycle Sustainment</td><td>9</td>
-        <td>Mature sustainment system, robust processes for entire lifecycle management</td>
-        <td>Evolutionary V&amp;V, twin alignment</td>
-        <td>SustainmentProgramReview – sustainment_program_effectiveness_final.pdf</td>
-      </tr>
-
-      <!-- Phase 12: Decommission & Recycle -->
-      <tr>
-        <td>AGAD 12/1</td><td>Decommission &amp; Recycle</td><td>1</td>
-        <td>Disassembly &amp; recycling plan, material segregation reports, EOL impact assessments</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>DecomPlanReview – decommission_recycle_report_001.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/2</td><td>Decommission &amp; Recycle</td><td>2</td>
-        <td>Identification &amp; qualification of recycling partners, reverse logistics setup</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>PartnerAudit – decommission_recycle_report_002.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/3</td><td>Decommission &amp; Recycle</td><td>3</td>
-        <td>Safe disassembly procedures, neutralization of hazardous/quantum materials</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>SafeDecomProcedureReview – decommission_recycle_report_003.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/4</td><td>Decommission &amp; Recycle</td><td>4</td>
-        <td>Material segregation for recycling, reuse or disposal, value-recovery optimization</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>MaterialSegregationAudit – decommission_recycle_report_004.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/5</td><td>Decommission &amp; Recycle</td><td>5</td>
-        <td>Traceability audits of recycled materials and reusable parts, circularity metrics</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>TraceabilityAudit – decommission_recycle_report_005.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/6</td><td>Decommission &amp; Recycle</td><td>6</td>
-        <td>Environmental impact &amp; recovery reports, documentation of EOL processes</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>EOL_ReportReview – decommission_recycle_report_006.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/7</td><td>Decommission &amp; Recycle</td><td>7</td>
-        <td>Regulatory &amp; sustainability compliance checks for EOL</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>RegulatoryComplianceEOL – decommission_recycle_report_007.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/8</td><td>Decommission &amp; Recycle</td><td>8</td>
-        <td>Design feedback for future DfD/DfR (Design for Disassembly/Recycling)</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>DesignFeedbackLoopReview – decommission_recycle_report_008.pdf</td>
-      </tr>
-      <tr>
-        <td>AGAD 12/9</td><td>Decommission &amp; Recycle</td><td>9</td>
-        <td>Complete EOL process documentation, lessons learned for continuous improvement</td>
-        <td>End-of-life V&amp;V, material traceability audits</td>
-        <td>EOL_ProcessCompleteReview – decommission_recycle_report_009.pdf</td>
-      </tr>
-    </tbody>
-  </# Matriz AGAD ↔ TRL ↔ Registro Contextual (AGAD-ID)
 
 | Fase AGAD | Nombre de Fase Principal  | Nivel TRL | Tipos de datos AGAD-ID registrados (Ejemplos)                                                                                                | Procesos de V&V asociados                                  | Ejemplo de Artefacto V&V (Conceptual)                                                                 |
 | :-------- | :------------------------ | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
