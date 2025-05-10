@@ -785,21 +785,77 @@ within the **GAIA-CO-ASD-LIB** repository.
 | **Box Colors**          | Domain classification                   | \[Section 1.2.3 Color Coding] |
 | **Box Shapes**          | Element type (technology, metric, etc.) | \[Section 1.2.2 Node Types]   |
 
-```plaintext
-<Actions>
-  <Action name="Develop Adoption Plan" description="Create the GP-FD-07-004-PLAN-A.md document outlining implementation strategy" />
-  <Action name="Create Ontology Versioning Procedures" description="Develop the GP-FD-07-005-PROC-A.md document for managing ontology updates" />
-  <Action name="Develop Lifecycle Emissions Model" description="Create the GP-SUPL-TRAC-0500-02-005-SDD-A.md document linking hydrogen production to lifecycle emissions" />
-  <Action name="Create Interactive Visualization Tool" description="Develop a tool to dynamically visualize and explore the relationship diagrams" />
-  <Action name="Implement Cross-Domain Optimization Analysis" description="Apply these relationship models to identify key optimization opportunities across domains" />
-</Actions>
-```
+```mermaid
+gantt
+    title AMPEL360-BWBQ100 Program Master Schedule (AGAD-LIFE v4 Structure - Corrected)
+    dateFormat  YYYY-MM
+    axisFormat  %Y %b
 
-```
+    % --- Key Program Milestones ---
+    milestone Incubation Start (AGAD 0.1)       :milestone, m_incub_start, 2024-01-01, 1d
+    milestone Program Launch (P0 - End AGAD 0.9):milestone, m_p0, 2025-01-01, 1d
+    milestone Preliminary Design Review (PDR)   :milestone, m_pdr, 2026-09-01, 1d
+    milestone Critical Design Review (CDR)      :milestone, m_cdr, 2028-03-01, 1d
+    milestone Prototype Manufacturing Complete  :milestone, m_proto_mfg_comp, 2029-03-01, 1d
+    milestone Prototype Ground Tests Complete   :milestone, m_proto_gnd_test_comp, 2029-09-01, 1d
+    milestone First Flight Authorization (FFA)  :milestone, m_ffa, 2029-11-15, 1d 
+    milestone First Flight (Prototype)          :milestone, m_first_flight, 2029-12-01, 1d % Target: End of Year 5 from P0
+    milestone Type Certification (TC)           :milestone, m_tc, 2030-12-01, 1d % Target: Approx. 1 year after First Flight
+    milestone Entry Into Service (EIS)          :milestone, m_eis, 2031-06-01, 1d % Target: Approx. 6 months after TC
 
----
+    % --- AGAD Phases (v4) ---
+    section AGAD Phase 0: Incubation & Start-Up
+    Ideation & Proposal Development      :crit, agad0_idea, 2024-01, 9m
+    Master Plan & Funding Acquisition    :crit, agad0_fund, after agad0_idea, 3m 
+    % This section culminates in the Program Launch (P0) milestone (m_p0)
 
-**End of Document**
+    section AGAD Phase 1: Concept Definition
+    % Starts after P0; the 5-year clock to First Flight begins from P0.
+    Overall Concept & Feasibility        :crit, agad01, after m_p0, 12m 
+
+    section AGAD Phase 2: Preliminary Design
+    System Architecture & Subsystem Def. :crit, agad02, after agad01, 12m 
+    % Aiming for PDR (m_pdr) around 2026-09 
+
+    section AGAD Phase 3: Analytical Modeling
+    High-Fidelity Modeling & Sim Setup :crit, agad03, 2026-01, 15m 
+    % Can start earlier, overlapping end of Ph2
+
+    section AGAD Phase 4: Detailed Design
+    Component & System Detailed Design    :crit, agad04, after m_pdr, 18m 
+    % Leads to CDR (m_cdr) around 2028-03
+
+    section AGAD Phase 5: Subsystem Integration
+    Subsystem Build & Lab Integration     :crit, agad05, 2027-10, 10m 
+    % Starts once some detailed designs mature, before full CDR
+
+    section AGAD Phase 6: Functional Simulation (System Level)
+    Full System HIL/SIL/Digital Twin Sim  :crit, agad06, after agad05, 8m
+
+    section AGAD Phase 7: Prototype Development
+    Prototype Manufacturing & Assembly    :crit, agad07, after m_cdr, 12m 
+    % Culminates in m_proto_mfg_comp 
+
+    section AGAD Phase 8: System Validation (Prototype Ground Tests)
+    Ground & Lab Validation of Prototype  :crit, agad08, after agad07, 6m
+    % Culminates in m_proto_gnd_test_comp & is critical for m_ffa
+
+    section AGAD Phase 9: Certification (Flight Test Campaign for TC)
+    First Flight & Initial Envelope Exp.  :crit, agad09_ff, after m_ffa, 1m 
+    % Actual First Flight Event (m_first_flight) occurs here
+    Flight Test Campaign & TC Data Gen    :crit, agad09_ftc, after agad09_ff, 11m 
+    % Intensive campaign to achieve TC (m_tc)
+
+    section AGAD Phase 10: EIS Prep & Production Ramp-up
+    Final Ops Docs & EIS Readiness    :crit, agad10_eis_prep, after m_tc, 6m 
+    Initial Production Aircraft Build :      agad10_prod, after m_tc, 6m 
+    % Leads to EIS milestone (m_eis)
+
+    section AGAD Phase 11: Lifecycle Sustainment
+    In-Service Support & Monitoring     :crit, agad11, after m_eis, 240m % Approx. 20 years
+
+    section AGAD Phase 12: Decommission & Recycle
+    EOL Planning & Execution            :crit, agad12, 2051-07, 24m % Starts after ~20 years of service
 ```
 
 
