@@ -1,5 +1,421 @@
+### GAIA-AGI-CONTEXT-INTENT SWITCH
+## 🌐 VPN-ADEAU (VPN Autónoma, Dinámica y Éticamente Aplicable Universalmente)
+
+### 1. Resumen Ejecutivo
+
+La **VPN-ADEAU** es un sistema de privacidad avanzado diseñado para proteger la privacidad y autonomía del usuario en todos los dispositivos electrónicos, incluyendo dispositivos comerciales, sistemas de aviónica y astriónica. Su objetivo fundamental es proporcionar una protección ética y universal, integrándose obligatoriamente en procesadores modernos.
+
+### 2. Principios Fundamentales
+
+* **Autonomía**: Capacidad de auto-configuración basada en contextos operativos.
+* **Dinámica**: Adaptación en tiempo real según el entorno y las preferencias del usuario.
+* **Ética Aplicable**: Estándares éticos integrados que aseguran la privacidad del usuario, cumplimiento de regulaciones globales como GDPR, CCPA y marcos éticos como AMEDEO.
+* **Universalidad**: Instalación mandatoria y universal en procesadores modernos para garantizar un estándar global.
+
+### 3. Características Principales
+
+* **Gestión Contextual Automática**: Activa o desactiva automáticamente la recolección y transmisión de datos contextuales según el entorno operativo definido por el usuario.
+* **Privacidad por Diseño**: Mecanismos integrados que aseguran que ningún dato personal sea recolectado o transmitido sin consentimiento explícito.
+* **Interfaz Intuitiva y Guía Inicial**: Una interfaz sencilla y accesible con una guía introductoria en cada nueva instalación que facilita su uso.
+
+### 4. Interfaz de Usuario
+
+#### Interfaz Sencilla
+
+* **Toggle Principal**:
+
+  * Etiqueta: "Activar Protección VPN-ADEAU"
+  * Estados visuales claros (activado/desactivado).
+* **Modo Explicativo**:
+
+  * Iconos claros y explicativos (escudo para privacidad activada, ojo tachado para protección de visibilidad).
+  * Colores distintivos (verde activo, azul privado, rojo advertencia).
+
+#### Guía de Introducción para Nuevos Usuarios
+
+Al instalar o iniciar sesión por primera vez en un dispositivo equipado con VPN-ADEAU, se activará una guía introductoria interactiva:
+
+1. **Bienvenida e Introducción:**
+
+   * Breve explicación sobre qué es VPN-ADEAU.
+   * Por qué es importante para la privacidad personal y la seguridad ética global.
+
+2. **Selección del Modo Operativo:**
+
+   * Explicación clara de cada modo (Privado, Contextual, Dinámico).
+   * Opciones fáciles de elegir según preferencias iniciales.
+
+3. **Configuración Inicial Simplificada:**
+
+   * Confirmación rápida sobre la activación inicial (predeterminado en modo privado).
+   * Opciones avanzadas accesibles bajo petición.
+
+4. **Ejemplos Prácticos:**
+
+   * Escenarios breves que demuestran cómo VPN-ADEAU protege la privacidad en diferentes contextos (trabajo, navegación, comunicación sensible).
+
+5. **Conclusión y Confirmación:**
+
+   * Resumen visual claro de las selecciones hechas por el usuario.
+   * Confirmación final y activación inmediata.
+
+### 5. Implementación Técnica y Ética
+
+* **Integración obligatoria en hardware**:
+
+  * Implementación de VPN-ADEAU a nivel de hardware en nuevos procesadores, asegurando una protección robusta e imposible de desactivar maliciosamente.
+* **Cumplimiento Regulatorio**:
+
+  * Alineación obligatoria con estándares internacionales de privacidad y ética digital.
+* **Auditoría y Transparencia**:
+
+  * Registros anónimos auditables sobre cambios en el estado de la VPN y modos activados, disponibles para revisiones éticas periódicas.
+
+### 6. Escalabilidad y Universalidad
+
+* Diseñado para integrarse universalmente en todo dispositivo electrónico, desde dispositivos personales hasta sistemas críticos en aeronáutica y astriónica.
+* Compatibilidad transversal asegurada por estándares abiertos y APIs accesibles para integración.
+
+### 7. Impacto Social y Beneficios
+
+* **Privacidad y Seguridad Personal Mejorada**: Protección robusta ante amenazas digitales y recolección no ética de datos.
+* **Estándar Ético Global**: Facilita la creación de un entorno digital globalmente seguro y éticamente consistente.
+* **Transparencia y Confianza**: Incrementa la confianza del usuario en la tecnología al garantizar controles éticos y claros sobre sus datos personales.
+
+---
+
+**Este documento representa un concepto generado mediante asistencia de IA y debe ser revisado y validado por expertos técnicos y éticos antes de su implementación efectiva.**
+
 # 🌐 GAIA-QAO Landing Page – Web Gateway Overview
 
+> **GenAI Proposal Status**: Este documento representa un marco conceptual generado mediante asistencia de IA. Debe ser revisado por expertos en el dominio antes de su implementación en sistemas de producción. Todas las especificaciones están sujetas a revisión basada en consideraciones éticas, técnicas y regulatorias.
+
+**ID Documento**: GACI-PRIVACY-MODE-01**Versión**: 0.1**Estado**: Borrador**Fecha**: 11/05/2025**Autor**: GAIA-PLATFORMS
+
+## 1. Resumen Ejecutivo
+
+El **Selector de Modo de Privacidad AGI** es un componente crítico de la infraestructura GAIA-PLATFORMS que permite a los usuarios controlar explícitamente el nivel de conciencia contextual y recolección de información que una AGI puede realizar durante una sesión de interacción. Este mecanismo representa una capa fundamental de protección de la privacidad y autonomía del usuario, permitiendo una activación/desactivación consciente y reversible del contexto operativo de una AGI.
+
+## 2. Especificación Técnica
+
+```yaml
+id: GACI-PRIVACY-MODE-01
+title: Selector de Modo de Privacidad AGI
+status: draft
+version: 0.1
+trigger: Al iniciar sesión de usuario en dispositivo
+interface:
+  type: toggle_interface
+  label: "¿Deseas activar la AGI en este entorno?"
+  options:
+    - label: "AGI Activa (con recolección de contexto)"
+      value: "active"
+      description: "Permite a la AGI adaptarse a tu entorno operativo, recolectando contexto y ajustando comportamientos."
+      icon: "context_enabled"
+      implications:
+        - "La AGI puede analizar tu entorno digital"
+        - "Puede recordar preferencias entre sesiones"
+        - "Adapta respuestas basadas en patrones de uso"
+    - label: "Modo Privado (AGI desconectada)"
+      value: "private"
+      description: "Evita toda recolección contextual. Interacción limitada a respuestas sin inferencia de entorno."
+      icon: "privacy_shield"
+      implications:
+        - "Sin recolección de datos contextuales"
+        - "Sin memoria entre sesiones"
+        - "Respuestas genéricas sin personalización"
+default: "private"
+visibility: always_shown_on_session_start
+persistence: until_user_logout_or_toggle
+audit_log: 
+  enabled: true
+  events_recorded:
+    - toggle_activation
+    - toggle_deactivation
+    - session_start
+    - session_end
+  data_recorded:
+    - timestamp
+    - user_id (anonymized)
+    - selected_mode
+    - session_id
+    - device_type
+accessibility:
+  keyboard_shortcut: "Alt+P"
+  screen_reader_support: true
+  high_contrast_mode: true
+```
+
+## 3. Funcionamiento Detallado
+
+### 3.1 Ciclo de Vida
+
+1. **Activación**: El selector aparece automáticamente al inicio de cada sesión de usuario, antes de cualquier interacción con la AGI.
+2. **Selección**: El usuario debe elegir explícitamente entre modo AGI Activa o Modo Privado.
+3. **Confirmación**: Se muestra una breve confirmación visual de la selección realizada.
+4. **Persistencia**: La selección permanece activa durante toda la sesión hasta que:
+
+1. El usuario cierre sesión
+2. El usuario cambie manualmente la configuración
+3. Transcurra el tiempo máximo de sesión (configurable)
+
+
+
+5. **Recordatorio**: Si la sesión supera las 4 horas, se muestra un recordatorio del modo actualmente seleccionado.
+6. **Registro**: Cada cambio de estado se registra en el Consent Log con timestamp y contexto mínimo.
+
+
+### 3.2 Interfaz de Usuario
+
+#### Componentes Visuales
+
+- **Toggle Switch**: Interruptor deslizante con estados claramente diferenciados
+- **Iconos**:
+
+- Modo Activo: Icono de red neuronal activa
+- Modo Privado: Icono de escudo de privacidad
+
+
+
+- **Indicador de Estado**: Barra de color persistente en la interfaz que indica el modo actual
+
+- Verde: Modo AGI Activa
+- Azul: Modo Privado
+
+
+
+- **Panel de Información**: Accesible mediante icono "i" que explica las implicaciones de cada modo
+
+
+#### Ubicación
+
+- **Escritorio**: Esquina superior derecha de la ventana principal
+- **Móvil**: En el menú de configuración rápida
+- **Web**: Barra de navegación superior
+- **Visor GAIA**: Panel de control principal
+
+
+### 3.3 Comportamiento del Sistema
+
+| Característica | Modo AGI Activa | Modo Privado
+|-----|-----|-----
+| Recolección de contexto | Habilitada | Deshabilitada
+| Memoria entre sesiones | Habilitada | Deshabilitada
+| Personalización | Completa | Mínima
+| Inferencia de intención | Habilitada | Deshabilitada
+| Adaptación a entorno | Habilitada | Deshabilitada
+| Procesamiento local | Parcial | Completo cuando es posible
+| Registro de interacciones | Completo (anonimizado) | Mínimo
+
+
+## 4. Integración con Sistemas GAIA
+
+### 4.1 GAIA-AUTO-CONTEXT-PROT-001
+
+El Selector de Modo de Privacidad AGI se integra como componente fundamental del protocolo GAIA-AUTO-CONTEXT-PROT-001, actuando como la capa de control primaria para la activación de los mecanismos de recolección contextual. Esta integración implica:
+
+- Comunicación bidireccional con el motor de contexto
+- Señalización de estado a todos los subsistemas de GAIA
+- Activación/desactivación de pipelines de procesamiento contextual
+- Modificación dinámica de los parámetros de inferencia
+
+
+### 4.2 PET-CORE
+
+La vinculación con el núcleo de Tecnologías de Mejora de Privacidad (PET-CORE) garantiza que:
+
+- Los mecanismos de privacidad implementados cumplen con estándares técnicos
+- Se aplican técnicas de minimización de datos
+- Se implementa cifrado de extremo a extremo cuando es necesario
+- Se aplican técnicas de computación privada para análisis contextual
+- Se mantiene compatibilidad con marcos regulatorios (GDPR, CCPA, etc.)
+
+
+### 4.3 AMEDEO
+
+La integración con el sistema de Supervisión Ética de Toma de Decisiones y Ética de Máquinas Autónomas (AMEDEO) permite:
+
+- Trazabilidad ética de decisiones de activación/desactivación
+- Evaluación continua del impacto ético de cada modo
+- Generación de informes de cumplimiento ético
+- Detección de anomalías en patrones de uso
+- Recomendaciones para mejora de la interfaz basadas en principios éticos
+
+
+## 5. Consideraciones Técnicas
+
+### 5.1 Rendimiento
+
+- **Latencia**: La activación/desactivación debe ocurrir en <100ms
+- **Overhead**: El impacto en rendimiento del sistema debe ser <1%
+- **Sincronización**: Todos los subsistemas deben reflejar el cambio de estado en <500ms
+
+
+### 5.2 Seguridad
+
+- **Protección contra manipulación**: Mecanismos para prevenir la modificación no autorizada del estado
+- **Verificación de integridad**: Comprobación criptográfica del estado del selector
+- **Resistencia a ataques**: Protección contra intentos de bypass o falsificación de estado
+- **Aislamiento**: Separación estricta entre modos para prevenir filtración de datos
+
+
+### 5.3 Escalabilidad
+
+- **Soporte multi-dispositivo**: Sincronización de estado entre dispositivos del mismo usuario
+- **Configuración empresarial**: Capacidad para establecer políticas a nivel organizacional
+- **Personalización avanzada**: Posibilidad de definir modos intermedios en futuras versiones
+
+
+## 6. Consideraciones Éticas
+
+### 6.1 Principios Fundamentales
+
+- **Autonomía del usuario**: El usuario mantiene control total sobre el nivel de contexto permitido
+- **Transparencia**: Comunicación clara de las implicaciones de cada modo
+- **No-maleficencia**: Prevención de uso indebido de datos contextuales
+- **Beneficencia**: Optimización de la experiencia respetando preferencias de privacidad
+- **Justicia**: Acceso equitativo a funcionalidades independientemente del modo seleccionado
+
+
+### 6.2 Impacto en Experiencia de Usuario
+
+- **Compromiso privacidad-funcionalidad**: Comunicación clara del balance entre privacidad y capacidades
+- **Educación del usuario**: Información accesible sobre implicaciones de cada modo
+- **Reducción de fatiga de decisión**: Persistencia adecuada para evitar solicitudes excesivas
+- **Adaptabilidad**: Respeto por diferentes niveles de preocupación por privacidad
+
+
+## 7. Implementación y Despliegue
+
+### 7.1 Fases de Desarrollo
+
+1. **Prototipo**: Implementación básica del selector con funcionalidad core
+2. **Prueba piloto**: Despliegue limitado con grupo de usuarios de prueba
+3. **Evaluación**: Análisis de patrones de uso y retroalimentación
+4. **Refinamiento**: Ajustes basados en hallazgos de la fase de evaluación
+5. **Despliegue general**: Implementación en todos los sistemas GAIA
+
+
+### 7.2 Requisitos de Infraestructura
+
+- **Almacenamiento seguro**: Para registro de consentimiento y auditoría
+- **Procesamiento en tiempo real**: Para aplicación inmediata de cambios de modo
+- **Sistemas de respaldo**: Para garantizar disponibilidad continua
+- **Mecanismos de sincronización**: Para consistencia entre dispositivos
+
+
+### 7.3 Métricas de Éxito
+
+- **Tasa de adopción**: Porcentaje de usuarios que utilizan activamente el selector
+- **Distribución de modos**: Proporción de tiempo en cada modo
+- **Satisfacción del usuario**: Evaluación mediante encuestas y retroalimentación
+- **Incidentes de privacidad**: Reducción de problemas relacionados con privacidad
+- **Comprensión del usuario**: Capacidad para explicar las implicaciones de cada modo
+
+
+## 8. Evolución Futura
+
+### 8.1 Modos Intermedios
+
+Futuras versiones podrían implementar niveles granulares de recolección contextual:
+
+- **Modo Híbrido**: Recolección limitada a categorías específicas de contexto
+- **Modo Temporal**: Activación de contexto por tiempo limitado para tareas específicas
+- **Modo Por Dominio**: Diferentes niveles de contexto según el dominio de aplicación
+
+
+### 8.2 Personalización Avanzada
+
+- **Perfiles de privacidad**: Configuraciones predefinidas para diferentes escenarios
+- **Reglas condicionales**: Activación automática basada en condiciones específicas
+- **Aprendizaje de preferencias**: Sugerencias basadas en patrones de uso previo
+
+
+### 8.3 Integración Expandida
+
+- **Ecosistema más amplio**: Compatibilidad con sistemas externos a GAIA
+- **Estándares abiertos**: Publicación de especificaciones para adopción general
+- **APIs públicas**: Interfaces para integración con aplicaciones de terceros
+
+
+## 9. Referencias
+
+1. GAIA-AUTO-CONTEXT-PROT-001: Protocolo de Protección Contextual Automática
+2. PET-CORE: Especificación de Tecnologías de Mejora de Privacidad
+3. AMEDEO: Marco de Supervisión Ética para Sistemas Autónomos
+4. GDPR: Reglamento General de Protección de Datos
+5. CCPA: Ley de Privacidad del Consumidor de California
+6. URIF: Marco Unificado de Inferencia Responsable
+7. CFSI: Marco Conceptual para Sistemas Inteligentes
+
+
+## 10. Anexos
+
+### Anexo A: Diagrama de Flujo de Decisión
+
+```plaintext
+[Inicio de Sesión] --> [Presentación del Selector]
+                    --> [Usuario Selecciona Modo]
+                    --> [¿Modo AGI Activa?]
+                        |
+                        +--> [Sí] --> [Activar Recolección Contextual]
+                        |           --> [Habilitar Memoria entre Sesiones]
+                        |           --> [Activar Personalización]
+                        |
+                        +--> [No] --> [Desactivar Recolección Contextual]
+                                   --> [Deshabilitar Memoria entre Sesiones]
+                                   --> [Minimizar Personalización]
+```
+
+### Anexo B: Ejemplo de Registro de Auditoría
+
+```json
+{
+  "event_id": "toggle_activation_12345",
+  "timestamp": "2025-05-11T15:23:31Z",
+  "user_id_hash": "a1b2c3d4e5f6g7h8i9j0",
+  "session_id": "session_98765",
+  "device_type": "desktop",
+  "previous_state": "private",
+  "new_state": "active",
+  "trigger": "user_action",
+  "interface_version": "0.1"
+}
+```
+
+### Anexo C: Mockup de Interfaz
+
+```plaintext
++-----------------------------------------------+
+|                                       [?] [i] |
+| GAIA-PLATFORMS                               |
++-----------------------------------------------+
+|                                               |
+|  ┌─────────────────────────────────────────┐  |
+|  │                                         │  |
+|  │  ¿Deseas activar la AGI en este entorno?│  |
+|  │                                         │  |
+|  │  ○ AGI Activa  ● Modo Privado          │  |
+|  │    [🧠]           [🛡️]                  │  |
+|  │                                         │  |
+|  │  AGI Activa: Permite a la AGI adaptarse │  |
+|  │  a tu entorno operativo, recolectando   │  |
+|  │  contexto y ajustando comportamientos.  │  |
+|  │                                         │  |
+|  │  Modo Privado: Evita toda recolección   │  |
+|  │  contextual. Interacción limitada a     │  |
+|  │  respuestas sin inferencia de entorno.  │  |
+|  │                                         │  |
+|  │             [Continuar]                 │  |
+|  │                                         │  |
+|  └─────────────────────────────────────────┘  |
+|                                               |
++-----------------------------------------------+
+```
+
+---
+
+*Documento generado para GAIA-PLATFORMS. Todos los derechos reservados.*
 ### GAIA-PLATFORMS WELL-ARCHITECTED GOVERNANCE FRAMEWORK
 
 **GenAI Proposal Status: This document is an AI-generated proposal for the GAIA-PLATFORMS Well-Architected Governance Framework and should be reviewed by domain experts before implementation.**
