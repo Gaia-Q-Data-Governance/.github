@@ -1,0 +1,44 @@
+- id: GAIA-DP-001
+  title: Separation of Concerns
+  type: Principle
+  domain: Architecture
+  description: "Components should have distinct responsibilities with minimal overlap, to improve modularity, testability, and scalability."
+  goals: [modularity, scalability, maintainability]
+  applies_to: [software, documentation, orchestration]
+  aligns_with: [ISO 42010, GAIA-MCP, COAFI]
+
+- id: GAIA-DP-002
+  title: API-First Design
+  type: Principle
+  domain: Architecture
+  description: "All services must define their interfaces through well-documented APIs before implementation, enabling decoupled development and integration."
+  goals: [interoperability, maintainability, developer-experience]
+  applies_to: [software, microservices, integration]
+  aligns_with: [OpenAPI, GAIA-MCP, REST]
+
+- id: GAIA-DP-003
+  title: Event-Driven Architecture
+  type: Principle
+  domain: Architecture
+  description: "Systems should communicate through standardized events, enabling loose coupling and scalable asynchronous processing."
+  goals: [scalability, resilience, extensibility]
+  applies_to: [software, integration, orchestration]
+  aligns_with: [GAIA-MCP, Event Sourcing, CQRS]
+
+- id: GAIA-DP-004
+  title: Infrastructure as Code
+  type: Principle
+  domain: Architecture
+  description: "All infrastructure should be defined, provisioned, and managed through version-controlled code, ensuring consistency and reproducibility."
+  goals: [consistency, automation, disaster-recovery]
+  applies_to: [infrastructure, deployment, operations]
+  aligns_with: [DevOps, GitOps, GAIA-MCP]
+
+- id: GAIA-DP-005
+  title: Immutable Deployments
+  type: Principle
+  domain: Architecture
+  description: "Deployed components should not be modified in-place; instead, new versions should be deployed alongside existing ones with controlled transition."
+  goals: [reliability, rollback-capability, auditability]
+  applies_to: [deployment, operations, microservices]
+  aligns_with: [Blue-Green Deployment, Canary Releases, GAIA-MCP]
