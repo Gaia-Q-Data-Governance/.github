@@ -117,7 +117,6 @@ graph TD
     C["Hybrid-Electric Propulsion"] -->|"2.20 kgCO₂e/kg"| B
     D["Hydrogen Combustion"] -->|"1.20 kgCO₂e/kg"| B
     E["Hydrogen Fuel Cell"] -->|"0.45 kgCO₂e/kg"| B
-    
     C ==>|"requires"| F["Battery Technology"]
     C ==>|"requires"| G["Power Electronics"]
     D ==>|"requires"| H["H₂ Storage Systems"]
@@ -125,35 +124,35 @@ graph TD
     E ==>|"requires"| H
     E ==>|"requires"| I
     E ==>|"requires"| J["Fuel Cell Systems"]
-    
     F -->|"impacts"| K["Aircraft Weight"]
     H -->|"impacts"| K
     K -->|"impacts"| L["Fuel Efficiency"]
     L -->|"impacts"| B
-    
     M["Sustainable Aviation Fuel"] -->|"2.10-3.50 kgCO₂e/kg"| B
     M ==>|"requires"| N["Biomass Feedstock"]
     M ==>|"requires"| O["SAF Production"]
-    
     P["Electric Propulsion"] -->|"0.05-0.48 kgCO₂e/kg"| B
     P ==>|"requires"| F
     P ==>|"requires"| Q["Renewable Energy"]
-    
     R["CORSIA"] -.->|"regulates"| B
-    S["EU ETS"] -.->|"regulates"| 
-    
+    S["EU ETS"] -.->|"regulates"| B
     T["Well-to-Wake Metric"] -.->|"measures"| B
     U["FECI Metric"] -.->|"measures"| L
-    
-    classDef technology fill:#f9f9f9,stroke:#333,stroke-width:1px;
-    classDef impact fill:#ffcccc,stroke:#333,stroke-width:1px;
-    classDef enabler fill:#ccffcc,stroke:#333,stroke-width:1px;
-    classDef metric fill:#ccccff,stroke:#333,stroke-width:1px;
-    classDef regulation fill:#ffffcc,stroke:#333,stroke-width:1px;
-    
-    class A,C,D,E,M,P technology;
-    class B,K,L impact;
-    class F,G,H,I,J,N,O,Q enabler;
-    class T,U metric;
-    class R,S regulation;
+
+    %% CLASES DE COLOR SEGÚN TU TABLA
+    classDef crosscutting fill:#157347,stroke:#0d3620,stroke-width:2px,color:#fff;
+    classDef air fill:#2253a2,stroke:#11294f,stroke-width:2px,color:#fff;
+    classDef space fill:#5f259f,stroke:#2e124b,stroke-width:2px,color:#fff;
+    classDef ground fill:#b85c00,stroke:#704000,stroke-width:2px,color:#fff;
+    classDef supply fill:#bba100,stroke:#7a6e00,stroke-width:2px,color:#222;
+    classDef negative fill:#b10821,stroke:#4a0610,stroke-width:2px,color:#fff;
+    classDef regulation fill:#666,stroke:#222,stroke-width:2px,color:#fff;
+
+    class C,P,A,D,E,M air;
+    class F,G,Q crosscutting;
+    class O,N space;
+    class I,H ground;
+    class K,L,B negative;
+    class J supply;
+    class R,S,T,U regulation;
 ```
