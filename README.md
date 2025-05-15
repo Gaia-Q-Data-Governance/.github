@@ -34,3 +34,49 @@ For inquiries or collaboration requests:
 ---
 
 © 2025 GAIA-Q-Aerospace - Project Management & Governance Team
+
+## Technology-to-Impact Relationship Diagrams
+
+This document provides **visual representations** of the key relationships between technologies, systems, operational practices, and environmental impacts within the **GA-SToP-CO2** framework. These relationship diagrams serve as critical tools for:
+
+- Understanding **complex interdependencies**  
+- Identifying **optimization opportunities**  
+- Supporting **decision-making** across the aerospace value chain  
+
+Using standardized notation and systems engineering principles, these diagrams ensure clarity, consistency, and actionability. They are designed as **living documents** that evolve as technologies mature and new relationships emerge.
+
+### Diagram Types and Notation
+
+#### Relationship Types
+
+| Relationship    | Symbol | Description                                        |
+|-----------------|--------|----------------------------------------------------|
+| **impacts**     | →      | Direct causal effect (positive or negative)        |
+| **requires**    | ⇒      | Dependency relationship                            |
+| **contributes_to** | ⇢   | Positive correlation or contribution               |
+| **measured_by** | ⊢      | Measurement or quantification relationship         |
+| **regulated_by**| ⊨      | Governance or regulatory relationship              |
+| **trade_off**   | ⇄      | Inverse relationship or competing objectives       |
+| **synergy**     | ⇆      | Mutually reinforcing relationship                  |
+
+#### Node Types
+
+| Node Type   | Visual            | Description                                          |
+|-------------|-------------------|------------------------------------------------------|
+| **Technology** | Rectangle         | Technical systems or components                     |
+| **Process**    | Rounded Rectangle | Operational processes or activities                 |
+| **Metric**     | Diamond           | Quantitative measures or indicators                 |
+| **Impact**     | Hexagon           | Environmental or performance outcomes               |
+| **Enabler**    | Oval              | Supporting infrastructure or capabilities           |
+| **Policy**     | Octagon           | Regulatory or governance elements                   |
+
+#### Color Coding
+
+| Color   | Domain            | Sustainability Impact         |
+|---------|-------------------|-------------------------------|
+| **Green**  | Cross-cutting     | High positive impact            |
+| **Blue**   | Air Systems       | Medium positive impact          |
+| **Purple** | Space Systems     | Low positive impact             |
+| **Orange** | Ground Operations | Neutral impact                  |
+| **Yellow** | Supply Chain      | Low negative impact             |
+| **Red**    | Any               | High negative impact            |
