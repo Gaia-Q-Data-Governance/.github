@@ -1,34 +1,462 @@
 {
-Error implementing plan: Stream ended without [DONE] message! Finish Reason: undefined
-Planned
-secure_config.py
-Planned
-observability.py
-Planned
-main.py
-Planned
-docker-compose.yml
-Planned
-infra/main.tf
-Planned
-vault-agent-config.hcl
-Planned
-docker-compose.vault-agent.yml
-Planned
-rotate-secret-id.sh
-Planned
-rotate-secret-id.cron
-Planned
-rotate-secret-id.service
-Planned
-rotate-secret-id.timer
-Planned
-install-gha-runner-aws.sh
-Planned
-install-gha-runner-gcp.sh
-Planned
-.github/workflows/deploy.yml
-Planned
-secrets-example/DEPLOY_TARGETS_JSON
+```python name=secure_config.py
+import os
+
+class SecureConfig:
+    """
+    Secure configuration loader for secrets and environment-sensitive variables.
+    Supports Vault, env vars, and .env fallback.
+    """
+
+    def __init__(self):
+        self._vault_addr = os.environ.get('VAULT_ADDR', 'https://vault.example.com')
+        self._vault_token = os.environ.get('VAULT_TOKEN')
+        self._secret_id_file = os.environ.get('SECRET_ID_FILE', '/opt/vault/secret-id')
+        self._role_name = os.environ.get('ROLE_NAME', 'github-backend')
+        self._pushgateway_url = os.environ.get('PUSHGATEWAY_URL', 'http://pushgateway:9091')
+        self._instance = os.environ.get('INSTANCE', os.uname()[1])
+
+    def get_vault_addr(self):
+        return self._vault_addr
+
+    def get_vault_token(self):
+        if not self._vault_token:
+            raise RuntimeError("VAULT_TOKEN not set in environment for secure config")
+        return self._vault_token
+
+    def get_secret_id_file(self):
+        return self._secret_id_file
+
+    def get_role_name(self):
+        return self._role_name
+
+    def get_pushgateway_url(self):
+        return self._pushgateway_url
+
+    def get_instance(self):
+        return self._instance
+```
+
+```python name=observability.py
+import requests
+import time
+
+class MetricsPusher:
+    def __init__(self, pushgateway_url, job, instance):
+        self.pushgateway_url = pushgateway_url
+        self.job = job
+        self.instance = instance
+
+    def push(self, result: bool, role: str, duration_sec: float):
+        data = (
+            f'vault_secretid_rotation_success{{role="{role}"}} {int(result)}\n'
+            f'vault_secretid_rotation_error{{role="{role}"}} {int(not result)}\n'
+            f'vault_secretid_rotation_last_seconds{{role="{role}"}} {duration_sec:.3f}\n'
+        )
+        url = f"{self.pushgateway_url}/metrics/job/{self.job}/instance/{self.instance}"
+        try:
+            resp = requests.post(url, data=data.encode('utf-8'), timeout=5)
+            resp.raise_for_status()
+        except Exception as ex:
+            print(f"[MetricsPusher] Failed to push metrics: {ex}")
+
+# Usage example:
+# mp = MetricsPusher("http://pushgateway:9091", "secretid_rotation", "myhost")
+# mp.push(result=True, role="github-backend", duration_sec=1.2)
+```
+
+```python name=main.py
+import subprocess
+import time
+from secure_config import SecureConfig
+from observability import MetricsPusher
+
+def rotate_secret_id():
+    config = SecureConfig()
+    metrics = MetricsPusher(config.get_pushgateway_url(), "secretid_rotation", config.get_instance())
+
+    start = time.time()
+    try:
+        # Generate new secret_id
+        cmd = [
+            "vault", "write", "-f", "-field=secret_id",
+            f"auth/approle/role/{config.get_role_name()}/secret-id"
+        ]
+        env = {
+            **os.environ,
+            "VAULT_ADDR": config.get_vault_addr(),
+            "VAULT_TOKEN": config.get_vault_token()
+        }
+        result = subprocess.run(cmd, env=env, capture_output=True, check=True, text=True)
+        secret_id = result.stdout.strip()
+
+        # Persist with safe perms
+        path = config.get_secret_id_file()
+        subprocess.run(["install", "-Dm400", "/dev/null", path], check=True)
+        with open(path, "w") as f:
+            f.write(secret_id)
+
+        # Nudge Vault Agent to reload
+        subprocess.run([
+            "docker", "compose", "-f", "docker-compose.vault-agent.yml",
+            "kill", "-s", "HUP", "vault-agent"
+        ], check=True)
+
+        # Push metrics
+        duration = time.time() - start
+        metrics.push(True, config.get_role_name(), duration)
+        print("Secret ID rotated successfully.")
+
+    except Exception as ex:
+        duration = time.time() - start
+        metrics.push(False, config.get_role_name(), duration)
+        print(f"ERROR during secret_id rotation: {ex}")
+
+if __name__ == "__main__":
+    rotate_secret_id()
+```
+
+```yaml name=docker-compose.yml
+version: '3.8'
+services:
+  nx-backend:
+    image: ghcr.io/enterprises/g-q/nx-backend:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    depends_on:
+      - vault-agent
+      - rabbitmq
+
+  vault-agent:
+    image: hashicorp/vault:1.15.3
+    command: agent -config=/vault/config/vault-agent-config.hcl
+    volumes:
+      - ./vault-agent-config.hcl:/vault/config/vault-agent-config.hcl:ro
+      - /opt/vault:/opt/vault
+    environment:
+      VAULT_ADDR: "https://vault.example.com"
+    healthcheck:
+      test: ["CMD", "vault", "status"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    restart: unless-stopped
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+```
+
+```hcl name=infra/main.tf
+provider "aws" {
+  region = var.region
+}
+
+resource "aws_instance" "vault_backend" {
+  ami           = var.ami_id
+  instance_type = "t3.medium"
+  tags = {
+    Name = "vault-backend"
   }
+
+  user_data = file("cloud-init-vault.txt")
+}
+
+resource "aws_instance" "gha_runner" {
+  ami           = var.ami_id
+  instance_type = "t3.medium"
+  tags = {
+    Name = "gha-runner"
+  }
+
+  user_data = file("cloud-init-gha-runner.txt")
+}
+```
+
+```hcl name=vault-agent-config.hcl
+pid_file = "/var/run/vault-agent.pid"
+
+auto_auth {
+  method "approle" {
+    mount_path = "auth/approle"
+    config = {
+      role_id_file_path = "/opt/vault/role-id"
+      secret_id_file_path = "/opt/vault/secret-id"
+    }
+  }
+  sink "file" {
+    config = {
+      path = "/opt/vault/agent-token"
+      mode = 0400
+    }
+  }
+}
+
+cache {
+  use_auto_auth_token = true
+}
+listener "tcp" {
+  address = "0.0.0.0:8200"
+  tls_disable = true
+}
+```
+
+```yaml name=docker-compose.vault-agent.yml
+version: '3.8'
+services:
+  vault-agent:
+    image: hashicorp/vault:1.15.3
+    command: agent -config=/vault/config/vault-agent-config.hcl
+    volumes:
+      - ./vault-agent-config.hcl:/vault/config/vault-agent-config.hcl:ro
+      - /opt/vault:/opt/vault
+    environment:
+      VAULT_ADDR: "https://vault.example.com"
+    healthcheck:
+      test: ["CMD", "vault", "status"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+```
+
+```bash name=rotate-secret-id.sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+# -------- configuration --------
+VAULT_ADDR=${VAULT_ADDR:-"https://vault.example.com"}
+ROLE_NAME=${ROLE_NAME:-"github-backend"}
+SECRET_ID_FILE=${SECRET_ID_FILE:-"/opt/vault/secret-id"}
+VAULT_TOKEN=${VAULT_TOKEN:?please_export_VAULT_TOKEN}
+PUSHGATEWAY_URL=${PUSHGATEWAY_URL:-"http://pushgateway:9091"}
+INSTANCE=${INSTANCE:-"$(hostname)"}
+
+# -------- generate new secret_id --------
+START=$(date +%s)
+if SECRET_ID=$(vault write -f -field=secret_id "auth/approle/role/${ROLE_NAME}/secret-id"); then
+  install -Dm400 /dev/null "${SECRET_ID_FILE}"
+  printf '%s' "${SECRET_ID}" > "${SECRET_ID_FILE}"
+  docker compose -f docker-compose.vault-agent.yml kill -s HUP vault-agent
+
+  # -------- Prometheus metric: success --------
+  cat <<EOF | curl --fail --silent --data-binary @- "${PUSHGATEWAY_URL}/metrics/job/secretid_rotation/instance/${INSTANCE}" || true
+vault_secretid_rotation_success{role="${ROLE_NAME}"} 1
+vault_secretid_rotation_error{role="${ROLE_NAME}"} 0
+vault_secretid_rotation_last_seconds{role="${ROLE_NAME}"} $(($(date +%s) - START))
+EOF
+
+else
+  logger -t rotate-secret-id "Vault rotation failed for role ${ROLE_NAME} at $(date -Is)"
+  # -------- Prometheus metric: failure --------
+  cat <<EOF | curl --fail --silent --data-binary @- "${PUSHGATEWAY_URL}/metrics/job/secretid_rotation/instance/${INSTANCE}" || true
+vault_secretid_rotation_success{role="${ROLE_NAME}"} 0
+vault_secretid_rotation_error{role="${ROLE_NAME}"} 1
+vault_secretid_rotation_last_seconds{role="${ROLE_NAME}"} $(($(date +%s) - START))
+EOF
+  exit 1
+fi
+
+unset SECRET_ID VAULT_TOKEN
+```
+
+```cron name=rotate-secret-id.cron
+# Rota el secret_id cada 12 horas (con entorno seguro)
+0 */12 * * * . /etc/vault/cron-env && /usr/local/bin/rotate-secret-id.sh >> /var/log/rotate-secret-id.log 2>&1
+```
+
+```ini name=rotate-secret-id.service
+[Unit]
+Description=Vault AppRole secret_id rotation and agent reload
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/vault/rotate-env
+ExecStart=/usr/local/bin/rotate-secret-id.sh
+User=vault
+Group=vault
+WorkingDirectory=/opt/stack
+ExecStartPost=/usr/bin/logger -t rotate-secret-id "rotation finished with code $? at $(date -Is)"
+```
+
+```ini name=rotate-secret-id.timer
+[Unit]
+Description=Rotate Vault AppRole secret_id every 12 hours
+
+[Timer]
+# dos veces al día (00:00 y 12:00)
+OnCalendar=*-*-* 00:00:00,12:00:00
+Persistent=yes
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target
+```
+
+```bash name=install-gha-runner-aws.sh
+#!/usr/bin/env bash
+#
+# Instala y registra un runner self-hosted de GitHub Actions en EC2 (label: aws)
+# Variables requeridas:
+#   GH_OWNER       — org o usuario (p.ej. enterprises/g-q)
+#   GH_PAT         — PAT con scope repo, workflow, admin:org
+#   RUNNER_NAME    — nombre único (default: hostname-aws)
+#   RUNNER_LABELS  — coma-separado (default: aws,linux,x64)
+#   RUNNER_VERSION — versión runner (default: 2.315.0)
+set -euo pipefail
+GH_OWNER=${GH_OWNER:?}
+GH_PAT=${GH_PAT:?}
+RUNNER_NAME=${RUNNER_NAME:-"$(hostname)-aws"}
+RUNNER_LABELS=${RUNNER_LABELS:-"aws,linux,x64"}
+RUNNER_VERSION=${RUNNER_VERSION:-"2.315.0"}
+
+sudo yum -y install jq curl tar
+curl -L -o actions-runner-linux-x64.tar.gz \
+  "https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz"
+sudo mkdir -p /opt/actions-runner && sudo tar -C /opt/actions-runner -xzf actions-runner-linux-x64.tar.gz
+cd /opt/actions-runner
+
+TOKEN=$(curl -sX POST -H "Authorization: token ${GH_PAT}" \
+  "https://api.github.com/repos/${GH_OWNER}/actions/runners/registration-token" | jq -r .token)
+
+trap 'sudo ./svc.sh stop; sudo ./config.sh remove --token "$TOKEN"' EXIT
+
+sudo ./config.sh --url "https://github.com/${GH_OWNER}" --token "${TOKEN}" \
+                --name "${RUNNER_NAME}" --labels "${RUNNER_LABELS}" --unattended --replace
+
+sudo ./svc.sh install --user $(whoami) --name actions.runner
+sudo systemctl restart actions.runner
+```
+
+```bash name=install-gha-runner-gcp.sh
+#!/usr/bin/env bash
+#
+# Instala y registra un runner self-hosted de GitHub Actions en GCE (label: gcp)
+# Variables requeridas (idénticas al script AWS)
+set -euo pipefail
+GH_OWNER=${GH_OWNER:?}
+GH_PAT=${GH_PAT:?}
+RUNNER_NAME=${RUNNER_NAME:-"$(hostname)-gcp"}
+RUNNER_LABELS=${RUNNER_LABELS:-"gcp,linux,x64"}
+RUNNER_VERSION=${RUNNER_VERSION:-"2.315.0"}
+
+sudo apt-get update && sudo apt-get install -y jq curl tar
+curl -L -o actions-runner-linux-x64.tar.gz \
+  "https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz"
+sudo mkdir -p /opt/actions-runner && sudo tar -C /opt/actions-runner -xzf actions-runner-linux-x64.tar.gz
+cd /opt/actions-runner
+
+TOKEN=$(curl -sX POST -H "Authorization: token ${GH_PAT}" \
+  "https://api.github.com/repos/${GH_OWNER}/actions/runners/registration-token" | jq -r .token)
+
+trap 'sudo ./svc.sh stop; sudo ./config.sh remove --token "$TOKEN"' EXIT
+
+sudo ./config.sh --url "https://github.com/${GH_OWNER}" --token "${TOKEN}" \
+                --name "${RUNNER_NAME}" --labels "${RUNNER_LABELS}" --unattended --replace
+
+sudo ./svc.sh install --user $(whoami) --name actions.runner
+sudo systemctl restart actions.runner
+```
+
+```yaml name=.github/workflows/deploy.yml
+name: Deploy to self-hosted targets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        include:
+          - runner: self-hosted,aws
+            provider: aws
+          - runner: self-hosted,gcp
+            provider: gcp
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Parse deploy targets
+        id: targets
+        env:
+          TARGETS_JSON: ${{ secrets.DEPLOY_TARGETS_JSON }}
+        run: |
+          echo "json=$(echo \"$TARGETS_JSON\" | jq -c 'map({ (.provider): . }) | add')" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy to host
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ fromJson(steps.targets.outputs.json)[matrix.provider].host }}
+          username: ${{ fromJson(steps.targets.outputs.json)[matrix.provider].user }}
+          key: ${{ fromJson(steps.targets.outputs.json)[matrix.provider].ssh_private_key }}
+          port: ${{ fromJson(steps.targets.outputs.json)[matrix.provider].port }}
+          script: |
+            cd ${{ fromJson(steps.targets.outputs.json)[matrix.provider].deploy_path }}
+            git pull
+            docker compose pull
+            docker compose up -d --remove-orphans
+            sudo systemctl restart rotate-secret-id.timer
+          ssh_option: -o StrictHostKeyChecking=yes -o UserKnownHostsFile=/github/workspace/known_hosts
+```
+
+```json name=secrets-example/DEPLOY_TARGETS_JSON
+[
+  {
+    "provider": "aws",
+    "host": "10.1.2.3",
+    "user": "deploy",
+    "ssh_private_key": "${{ secrets.DEPLOY_HOST1_KEY }}",
+    "port": 22,
+    "deploy_path": "/opt/stack"
+  },
+  {
+    "provider": "gcp",
+    "host": "myapp.example.com",
+    "user": "admin",
+    "ssh_private_key": "${{ secrets.DEPLOY_HOST2_KEY }}",
+    "deploy_path": "/opt/stack"
+  }
+]
+```
+
+```bash name=cloud-init-gha-runner.sh
+#cloud-config
+runcmd:
+  - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+  - apt-get update && apt-get install -y git jq curl tar sudo
+  - export GH_OWNER="enterprises/g-q"
+  - export GH_PAT="ghp_xxxxxxxxxxxxxxxxxxxxxxxxx"
+  - curl -o /tmp/install-gha-runner-gcp.sh https://raw.githubusercontent.com/yourrepo/scripts/install-gha-runner-gcp.sh
+  - chmod +x /tmp/install-gha-runner-gcp.sh
+  - /tmp/install-gha-runner-gcp.sh
+```
+
+```bash name=cloud-init-vault.txt
+#cloud-config
+runcmd:
+  - apt-get update && apt-get install -y docker.io
+  - mkdir -p /opt/vault
+  - curl -fsSL https://raw.githubusercontent.com/yourrepo/scripts/rotate-secret-id.sh -o /usr/local/bin/rotate-secret-id.sh
+  - chmod 0700 /usr/local/bin/rotate-secret-id.sh
+  - echo 'export VAULT_TOKEN="s.XXXX..."' > /etc/vault/rotate-env
+  - chmod 0600 /etc/vault/rotate-env
+  - systemctl daemon-reload
+  - systemctl enable --now rotate-secret-id.timer
+```
+
+```text name=known_hosts
+# Agrega aquí la huella pública (public key fingerprint) de tus hosts destino, por ejemplo:
+10.1.2.3 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJNw...
+myapp.example.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC...
+```
+
 }
