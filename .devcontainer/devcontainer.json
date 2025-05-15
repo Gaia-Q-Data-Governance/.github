@@ -1,5 +1,34 @@
 {
-  "tasks": {
-    "build": "No build commands are necessary for this repository."
+Error implementing plan: Stream ended without [DONE] message! Finish Reason: undefined
+Planned
+secure_config.py
+Planned
+observability.py
+Planned
+main.py
+Planned
+docker-compose.yml
+Planned
+infra/main.tf
+Planned
+vault-agent-config.hcl
+Planned
+docker-compose.vault-agent.yml
+Planned
+rotate-secret-id.sh
+Planned
+rotate-secret-id.cron
+Planned
+rotate-secret-id.service
+Planned
+rotate-secret-id.timer
+Planned
+install-gha-runner-aws.sh
+Planned
+install-gha-runner-gcp.sh
+Planned
+.github/workflows/deploy.yml
+Planned
+secrets-example/DEPLOY_TARGETS_JSON
   }
 }
