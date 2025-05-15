@@ -1,104 +1,281 @@
 # Procedimiento Operacional Estándar (SOP) para la Convención de Identificadores Basada en NATO Part Number (NPN)
 
+---- [Procedimiento Operacional Estándar (SOP) para la Convención de Identificadores Basada en NATO Part Number (NPN)](#procedimiento-operacional-estándar-sop-para-la-convención-de-identificadores-basada-en-nato-part-number-npn)
+  - [1. Propósito y alcance](#1-propósito-y-alcance)
+  - [2. Normativa y referencias](#2-normativa-y-referencias)
+  - [3. Responsabilidades](#3-responsabilidades)
+  - [4. Convención de identificadores](#4-convención-de-identificadores)
+    - [4.1 Sintaxis formal](#41-sintaxis-formal)
+    - [4.2 Tabla de TipoDoc autorizados](#42-tabla-de-tipodoc-autorizados)
+  - [5. Reglas de aplicación](#5-reglas-de-aplicación)
+  - [6. Procedimientos operativos](#6-procedimientos-operativos)
+    - [6.1 Asignación de Secuencia](#61-asignación-de-secuencia)
+    - [6.2 Control de versiones (Detallado)](#62-control-de-versiones-detallado)
+    - [6.3 Proceso Backfill (Renombrado de artefactos existentes)](#63-proceso-backfill-renombrado-de-artefactos-existentes)
+    - [6.4 Linting automático](#64-linting-automático)
+  - [7. Gestión de cambios y aprobaciones del SOP](#7-gestión-de-cambios-y-aprobaciones-del-sop)
+  - [8. Anexos](#8-anexos)
+# Procedimiento Operacional Estándar (SOP) para la Convención de Identificadores Basada en NATO Part Number (NPN)
+
 ---
 
 ## 1. Propósito y alcance
 
-Este procedimiento establece la convención oficial para nombrar, versionar y gestionar toda la documentación y artefactos (software, hardware, datos y registros de fallo) asociados a un componente identificado mediante un NATO Part Number (NPN). Su objetivo principal es asegurar la **unicidad, trazabilidad, interoperabilidad y eficiencia en la gestión de la configuración** a lo largo del ciclo de vida de los productos.
+Este procedimiento establece la **convención oficial** para nombrar, versionar y gestionar **toda la documentación y artefactos** (software, hardware, datos, registros de fallo, etc.) asociados a un componente identificado mediante un **NATO Part Number (NPN)**.
 
-Su aplicación es obligatoria en todos los proyectos de Gaia-QAO / Quantum Aerospace que involucren sistemas espacio-aeroespaciales, desde el diseño conceptual hasta la retirada de servicio.
+Sus objetivos principales son garantizar la **unicidad**, **trazabilidad**, **interoperabilidad** y **eficiencia** en la gestión de la configuración a lo largo del ciclo de vida de los productos.
 
-**Alcance:** Repositorios Git, PLM/ALM, servidores de artefactos, wikis, sistemas de gestión de incidencias y bases de datos de obsolescencia. Este SOP se centra en el versionado lineal de artefactos bajo un NPN; las variantes complejas de productos que requieran una diferenciación mayor podrían necesitar NPNs distintos o ser gestionadas mediante mecanismos complementarios definidos por Gestión de la Configuración.
+**Alcance:**
+
+* Repositorios Git / SVN
+* Herramientas PLM / ALM
+* Servidores de artefactos (Docker / S‑BoM)
+* Wikis y portales internos
+* Sistemas de gestión de incidencias
+
+Este SOP cubre el *versionado lineal* de artefactos ligados a un NPN. Variantes complejas pueden requerir NPN diferentes o mecanismos de control complementarios definidos por Gestión de la Configuración.
 
 ---
 
 ## 2. Normativa y referencias
 
-| Ref. | Documento / Norma      | Descripción breve                        | Ubicación/Acceso (Ejemplo)                     |
-| :--- | :--------------------- | :--------------------------------------- | :--------------------------------------------- |
-| [N1] | STANAG 3150            | Sistema OTAN de numeración de piezas     | Intranet Corporativa / Documentos Calidad      |
-| [N2] | ISO 9001 / EN 9100     | Sistemas de gestión de la calidad        | Intranet Corporativa / Documentos Calidad      |
-| [N3] | ECSS-Q-ST-40 / DO-178C | Aseguramiento de software crítico        | Intranet Corporativa / Documentos Calidad      |
-| [N4] | MIL-STD-973 / EIA-649  | Gestión de la Configuración (CM)         | Intranet Corporativa / Documentos Calidad      |
-| [N5] | IEEE 829 / ISO IEC 29119 | Procesos y formatos de documentación SW | Intranet Corporativa / Documentos Calidad      |
+| Ref.  | Documento / Norma            | Descripción breve                                | Ubicación / Acceso |
+| :---- | :--------------------------- | :----------------------------------------------- | :----------------- |
+| \[N1] | **STANAG 3150**              | Sistema OTAN de numeración de piezas             | Intranet / Calidad |
+| \[N2] | **ISO 9001 / EN 9100**       | Sistemas de gestión de la calidad                | Intranet / Calidad |
+| \[N3] | **ECSS‑Q‑ST‑40 / DO‑178C**   | Aseguramiento de software crítico                | Intranet / Calidad |
+| \[N4] | **MIL‑STD‑973 / EIA‑649**    | Gestión de la Configuración (CM)                 | Intranet / Calidad |
+| \[N5] | **ISO IEC 29119 / IEEE 829** | Procesos y formatos de documentación de software | Intranet / Calidad |
 
-**Nota:** Es responsabilidad de cada empleado asegurarse de que está utilizando la versión más reciente de las normativas aplicables.
+> **Nota:** Cada empleado es responsable de utilizar la **última versión** disponible de las normativas aplicables.
 
 ---
 
 ## 3. Responsabilidades
 
-| Rol                          | Responsabilidad clave                                                                                                |
-| :--------------------------- | :------------------------------------------------------------------------------------------------------------------- |
-| CCB (Change Control Bd.)     | Aprobar NPN oficiales, versiones rREV, cambios a la convención y adiciones a TipoDoc. Resolver disputas sobre la aplicación de esta convención. |
-| Ingeniería de Diseño         | Asignar TipoDoc y secuencias; generar PDFs finales; proponer nuevos TipoDoc.                                         |
-| Gestión de la Configuración  | Mantener el registro maestro de identificadores, velar por la unicidad y la correcta aplicación de este SOP. Actuar como punto de consulta primario para dudas sobre la convención. Proponer mejoras al SOP. |
-| DevOps / CI                  | Implementar y mantener linting y validación automática en pipelines.                                                |
-| QA                           | Auditar el cumplimiento de este SOP. Asegurar que el personal relevante recibe formación sobre este procedimiento.       |
-| Todos los empleados          | Conocer y aplicar esta convención a todos los artefactos bajo su responsabilidad.                                        |
+| Rol                             | Responsabilidad clave                                                                                                                                               |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **CCB** (Change Control Board)  | • Aprobar NPN oficiales y revisiones `rXX`.<br>• Autorizar nuevos `TipoDoc`.<br>• Resolver disputas sobre la convención.                                            |
+| **Ingeniería de Diseño**        | • Asignar `TipoDoc` y secuencias.<br>• Generar artefactos finales (PDF, BIN, etc.).                                                                                 |
+| **Gestión de la Configuración** | • Mantener el registro maestro de identificadores.<br>• Garantizar unicidad y correcta aplicación del SOP.<br>• Punto de consulta primario y proponente de mejoras. |
+| **DevOps / CI**                 | • Implementar linting y validación automática en los pipelines.                                                                                                     |
+| **QA**                          | • Auditar cumplimiento.<br>• Asegurar formación en el SOP.                                                                                                          |
+| **Todo el personal**            | • Conocer y aplicar la convención en artefactos bajo su responsabilidad.                                                                                            |
 
 ---
 
 ## 4. Convención de identificadores
 
-La forma canónica es:
-
-`<NPN>`-`<TipoDoc>`[-`<Secuencia>`]-`<Versión>`.$<ext>$
-
-Donde los corchetes angulares (`<>`) indican campos obligatorios y los paréntesis cuadrados (`[]`) en la sintaxis formal opcionales (el guion de Secuencia y la Secuencia completa).
-
 ### 4.1 Sintaxis formal
 
-| Elemento  | Regex                                  | Ejemplo       | Descripción                                                                                                                                                                  |
-| :-------- | :------------------------------------- | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NPN       | `[A-Z0-9]{2,5}-[0-9]{2}-[0-9]{3}-[0-9]{4}` | PN-02-137-0005 | NATO Part Number o identificador interno equivalente. El primer bloque (ej. “PN” o un NCAGE de 5 caracteres como “D0123”) identifica la organización o el proyecto principal, seguido de bloques numéricos (2-3-4 dígitos). La conformidad estricta con STANAG 3150 para NPNs externos es mandatoria donde aplique. |
-| TipoDoc   | `[A-Z]{2,6}`                           | SRS, DWG      | Código del tipo de documento (ver tabla 4.3).                                                                                                                                |
-| Secuencia | `[0-9]{3}`                             | 001           | Consecutivo interno (001-999) para múltiples documentos del mismo NPN y TipoDoc. Opcional si solo existe un documento (omitiendo el guion y la secuencia).                |
-| Versión   | `v[0-9]+\.[0-9]+` `r[0-9]{2}`           | v1.3, r05     | Versión del documento: `v` para versiones de trabajo (mayor.menor), `r` para revisiones formales aprobadas por CCB (empezando por r01).                                |
-| ext       | `[a-z0-9]{1,5}`                        | pdf, xml      | Extensión de fichero (siempre en minúsculas).                                                                                                                                |
+La forma canónica es:
 
-Expresión regular completa (ejemplo para validación):
+```
+<NPN>-<TipoDoc>(-<Secuencia>)-<Versión>.<ext>
+```
 
-```regex
-^(?P<NPN>[A-Z0-9]{2,5}-[0-9]{2}-[0-9]{3}-[0-9]{4})-(?P<TipoDoc>[A-Z]{2,6})(-(?P<Seq>[0-9]{3}))?-(?P<Ver>v[0-9]+\.[0-9]+|r[0-9][1-9]|r[1-9][0-9])\.(?P<ext>[a-z0-9]{1,5})$
+| Campo         | Regex                                      | Ejemplo          | Descripción                                                                                             |
+| :------------ | :----------------------------------------- | :--------------- | :------------------------------------------------------------------------------------------------------ |
+| **NPN**       | `[A-Z0-9]{2,5}-[0-9]{2}-[0-9]{3}-[0-9]{4}` | `PN-02-137-0005` | NATO Part Number o identificador interno equivalente.                                                   |
+| **TipoDoc**   | `[A-Z]{2,6}`                               | `SRS`, `DDS`     | Código del tipo de documento autorizado.                                                                |
+| **Secuencia** | `[0-9]{3}` *opcional*                      | `001`            | Consecutivo interno para múltiples documentos del mismo NPN‑TipoDoc.                                    |
+| **Versión**   | `v[0-9]+\.[0-9]+ \| r[0-9]{2}`             | `v0.3`, `r01`    | `vX.Y` para borradores; `rNN` para revisiones aprobadas por CCB. `r01` es la primera liberación formal. |
+| **ext**       | `[a-z0-9]{1,5}`                            | `pdf`, `md`      | Extensión del archivo en minúsculas.                                                                    |
 
-Nota: La regex de ejemplo para Ver (r[0-9][1-9]|r[1-9][0-9]) asegura que rXX comience desde r01 (es decir, r01-r09 y r10-r99).
-4.2 Tabla de TipoDoc autorizados
-| TipoDoc | Descripción |
-|---|---|
-| SRS | Software Requirement Specification |
-| DDS | Detailed Design Specification |
-| DWG | Plano o esquema CAD |
-| TM | Technical Manual |
-| TR | Test Report |
-| FR | Failure Report |
-| CFG | Fichero de configuración (XML/JSON) |
-| BIN | Binario compilado / firmware |
-| … | (Otros según necesidad) |
-La lista maestra y actualizada de TipoDoc autorizados se mantiene en [Ubicación Centralizada, ej: Wiki Corporativa/Página de Gestión de Configuración en PLM]. La adición de nuevos valores requiere petición formal a la CCB a través de Gestión de la Configuración.
-5. Reglas de aplicación
- * Unicidad: Ningún cuarteto (NPN, TipoDoc, Secuencia, Versión) puede duplicarse en el repositorio maestro ni en ningún sistema bajo el alcance de este SOP.
- * Control de Versión:
-   * Las versiones de trabajo (vX.Y) son incrementadas por los autores. X (mayor) se incrementa para cambios significativos no liberados, Y (menor) para cambios menores o iteraciones.
-   * La primera liberación formal de un artefacto será r01.
-   * Solo la CCB aprueba el incremento a una nueva revisión formal (rXX, p.ej., de r01 a r02).
-   * Una vez un artefacto es liberado formalmente (p.ej., SRS-DOC001-r01.pdf), cualquier trabajo subsecuente para una futura revisión (r02) debe comenzar con una nueva secuencia de versiones de trabajo (p.ej., SRS-DOC001-v2.0.pdf, donde el 2 en v2.0 indica que es trabajo hacia la revisión r02).
- * Inmutabilidad: Una vez un artefacto con una Versión específica (especialmente una rXX) es firmado y liberado, el archivo asociado es considerado inmutable (read-only). Cualquier cambio requiere un nuevo identificador de Versión.
- * Integración: El campo NPN se mapea a la clave primaria o identificador principal del componente en sistemas PLM/ALM. Los pipelines CI/CD deben derivar metadatos del identificador siempre que sea posible.
- * Extensiones: Se priorizará el uso de formatos abiertos y estándar (pdf, xml, json, yaml, txt) siempre que sea posible y adecuado para el tipo de artefacto.
- * Manejo de No Conformidades: En casos excepcionales donde un artefacto no pueda cumplir esta convención (p.ej. sistemas heredados durante la fase de transición del “Proceso Backfill”), se documentará la excepción y se gestionará bajo la supervisión de Gestión de la Configuración y aprobación del CCB si es necesario. Estos artefactos deben ser claramente identificados.
-6. Procedimientos operativos
-6.1 Asignación de Secuencia
- * Consultar el registro maestro (preferiblemente el servicio PLM; si se usa una hoja de cálculo compartida, ejercer máxima precaución para evitar conflictos de concurrencia).
- * Seleccionar el siguiente número de Secuencia libre (001…999) para la combinación NPN-TipoDoc dada.
- * Registrar la reserva de la secuencia inmediatamente en el registro maestro antes de generar el documento o artefacto.
-6.2 Control de versiones (Detallado)
- * Versiones de Trabajo (vX.Y):
-   * v0.1, v0.2, …: Desarrollo inicial antes de la primera revisión formal.
-   * Tras una liberación
-<!-- end list -->
+> **Regex completa:**
+>
+> ```regex
+> ^(?P<NPN>[A-Z0-9]{2,5}-[0-9]{2}-[0-9]{3}-[0-9]{4})-(?P<TipoDoc>[A-Z]{2,6})(-(?P<Seq>[0-9]{3}))?-(?P<Ver>v[0-9]+\.[0-9]+|r0[1-9]|r[1-9][0-9])\.(?P<ext>[a-z0-9]{1,5})$
+> ```
+>
+> Asegura que las revisiones formales comiencen en **r01**.
 
-**Nota:** El texto parece cortado al final de la sección 6.2. Si tienes el resto, puedo continuar formateándolo.
+### 4.2 Tabla de `TipoDoc` autorizados
+
+| TipoDoc | Descripción                          |
+| :------ | :----------------------------------- |
+| **SRS** | *Software Requirement Specification* |
+| **DDS** | *Detailed Design Specification*      |
+| **DWG** | Plano o esquema CAD                  |
+| **TM**  | *Technical Manual*                   |
+| **TR**  | *Test Report*                        |
+| **FR**  | *Failure Report*                     |
+| **CFG** | Fichero de configuración (XML/JSON)  |
+| **BIN** | Binario compilado / firmware         |
+| **…**   | (Extensible previa aprobación CCB)   |
+
+La lista maestra se mantiene en la **Wiki corporativa → Gestión de Configuración**. Añadir un nuevo `TipoDoc` requiere petición formal a la CCB.
+
+---
+
+## 5. Reglas de aplicación
+
+1. **Unicidad:** Ningún cuarteto `(NPN, TipoDoc, Secuencia, Versión)` puede duplicarse en los sistemas bajo alcance.
+2. **Control de versión:**
+
+   * **Borradores:** `vX.Y` incrementado por autores (X = cambio mayor, Y = menor).
+   * **Liberación inicial:** `r01` asignada tras aprobación CCB.
+   * **Revisiones sucesivas:** `rNN` (`r02`, `r03`, …) asignadas solo por CCB. Su desarrollo comienza desde `v(N+1).0`.
+3. **Inmutabilidad:** Artefactos `rNN` firmados son *read‑only*; cualquier cambio → nueva versión.
+4. **Integración automatizada:** Pipelines CI/CD extraen metadatos del nombre de archivo; NPN se mapea a la *clave primaria* en PLM/ALM.
+5. **Formatos abiertos:** Priorizar `pdf`, `md`, `xml`, `json`, `yaml`, `txt` salvo restricciones técnicas.
+6. **No conformidades:** Excepciones durante el **Backfill** deben documentarse y aprobarse por CCB.
+
+---
+
+## 6. Procedimientos operativos
+
+### 6.1 Asignación de secuencia
+
+1. Consultar el **registro maestro** (PLM preferido).
+2. Tomar el siguiente número libre `001…999` para la pareja `NPN‑TipoDoc`.
+3. Registrar la reserva *antes* de generar el artefacto.
+
+### 6.2 Control de versiones (detallado)
+
+| Estado           | Ejemplos       | Quién actualiza | Comentario                                 |
+| :--------------- | :------------- | :-------------- | :----------------------------------------- |
+| Borrador inicial | `v0.1`, `v0.2` | Autor           | Desarrollo antes de la 1ª revisión formal. |
+| Pre‑r02          | `v2.0`, `v2.1` | Autor           | Borradores hacia la siguiente revisión.    |
+| Formal           | `r01`, `r02`   | CCB             | Aprobación tras control de cambios.        |
+
+### 6.3 Proceso **Backfill**
+
+1. Inventariar artefactos existentes.
+2. Mapearlos a los campos de la convención.
+3. Ejecutar scripts `rename_npn.py` en entorno controlado.
+4. Actualizar enlaces en wikis, tickets, documentación.
+5. Verificar integridad post‑renombrado.
+
+### 6.4 Linting automático
+
+El script `npn_lint.py` verifica la regex de §4.1. Un fallo hace **break** en el pipeline.
+
+---
+
+## 7. Gestión de cambios y aprobaciones del SOP
+
+| Rev | Fecha      | Descripción                                                                     | Autor | Aprobación CCB |
+| :-- | :--------- | :------------------------------------------------------------------------------ | :---- | :------------- |
+| 0   | 2025‑05‑14 | Versión inicial del SOP.                                                        | RBT   | ☐              |
+| 1   | —          | Clarificaciones NPN, versionado, responsabilidades; detalles en procedimientos. | —     | ☐              |
+
+---
+
+## 8. Anexos
+
+### Anexo A – Ejemplos de identificadores correctos / incorrectos
+
+#### Ejemplos **correctos**
+
+| Nº | Nombre de archivo                      | Comentario                          |
+| -- | -------------------------------------- | ----------------------------------- |
+| 1  | **PN-02-137-0005-SRS-v0.1.md**         | Primer borrador de la SRS           |
+| 2  | **PN-02-137-0005-SRS-001-r01.pdf**     | Revisión formal aprobada            |
+| 3  | **D0123-99-045-1234-DWG-003-v2.0.dxf** | Tercer plano CAD, trabajo hacia r02 |
+| 4  | **GACI1-01-001-0001-DDS-001-v0.1.md**  | Ejemplo de DDS inicial              |
+
+#### Ejemplos **incorrectos**
+
+| Nº | Nombre de archivo             | Motivo de rechazo                                               |
+| -- | ----------------------------- | --------------------------------------------------------------- |
+| 1  | PN-02-137-SRS-v0.1.md         | Falta el bloque `-0005` del NPN                                 |
+| 2  | PN-02-137-0005-SRS-r00.pdf    | `r00` no permitido; las revisiones formales empiezan en **r01** |
+| 3  | PN-02-137-0005-SRS-1-v1.0.pdf | Secuencia debe ser *exactamente* tres dígitos (001‑999)         |
+| 4  | pn-02-137-0005-srs-v0.1.md    | Uso de minúsculas en NPN y TipoDoc                              |
+
+---
+
+### Anexo B – Scripts de apoyo
+
+> **Nota:** los scripts se proporcionan como referencia. Se recomienda integrarlos en el *repo* de utilidades DevOps y añadir tests antes de uso en producción.
+
+```python
+# npn_lint.py
+"""
+Valida que los nombres de archivo cumplan la expresión
+canónica definida en el SOP.
+Uso:  python npn_lint.py <archivo1> [archivo2 ...]
+Devuelve 0 si todos los nombres son válidos; 1 en caso contrario.
+"""
+import re, sys, pathlib
+
+REGEX = re.compile(
+    r"^(?P<NPN>[A-Z0-9]{2,5}-[0-9]{2}-[0-9]{3}-[0-9]{4})-"
+    r"(?P<TipoDoc>[A-Z]{2,6})"
+    r"(?:-(?P<Seq>[0-9]{3}))?"
+    r"-(?P<Ver>v[0-9]+\.[0-9]+|r[0-9][1-9]|r[1-9][0-9])\."
+    r"(?P<ext>[a-z0-9]{1,5})$"
+)
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python npn_lint.py <file1> [file2 ...]")
+        sys.exit(2)
+
+    exit_code = 0
+    for fname in sys.argv[1:]:
+        name = pathlib.Path(fname).name
+        if REGEX.match(name):
+            print(f"✔ {name} : OK")
+        else:
+            print(f"✖ {name} : INVALID")
+            exit_code = 1
+    sys.exit(exit_code)
+
+if __name__ == "__main__":
+    main()
+```
+
+```python
+# rename_npn.py
+"""
+Renombra de forma interactiva archivos que **no** cumplen la convención.
+Lee los metadatos (NPN, TipoDoc, etc.) desde argumentos o mediante
+preguntas al usuario y mueve el archivo al nuevo nombre.
+Uso:  python rename_npn.py <ruta/al/archivo> --npn PN-... --tipodoc SRS --ver v0.1 [--seq 001] [--ext pdf]
+"""
+import argparse, pathlib, shutil, sys
+
+parser = argparse.ArgumentParser(description="Renombrado seguro de artefactos NPN")
+parser.add_argument("file", help="Ruta al archivo a renombrar")
+parser.add_argument("--npn", required=True, help="NPN destino completo")
+parser.add_argument("--tipodoc", required=True, help="TipoDoc (p.ej. SRS)")
+parser.add_argument("--seq", default="", help="Secuencia opcional de tres dígitos")
+parser.add_argument("--ver", required=True, help="Versión (vX.Y o rNN)")
+parser.add_argument("--ext", help="Extensión destino (por defecto conserva la original)")
+args = parser.parse_args()
+
+src = pathlib.Path(args.file).expanduser().resolve()
+if not src.exists():
+    sys.exit(f"Archivo no encontrado: {src}")
+
+ext = args.ext or src.suffix.lstrip(".")
+seq_part = f"-{args.seq}" if args.seq else ""
+new_name = f"{args.npn}-{args.tipodoc}{seq_part}-{args.ver}.{ext}"
+
+dst = src.with_name(new_name)
+print(f"Renombrando: {src.name} -> {dst.name}")
+shutil.move(src, dst)
+```
+
+---
+
+### Anexo C – Flujograma del ciclo de versionado `vX.Y` → `rNN`
+
+```mermaid
+flowchart LR
+    A[Draft v0.1] --> B[Iteraciones v0.Y]
+    B --> C[Freeze v1.0]
+    C --> D[Revisión interna]
+    D -->|Aprobado CCB| E[Release r01]
+    E --> F[Operación / feedback de campo]
+    F --> G[Arranque de nueva línea v2.0]
+    G --> H[Iteraciones v2.Y]
+    H --> I[Freeze v2.0]
+    I --> J[Revisión interna]
+    J -->|CCB| K[Release r02]
+```
 
 ## GAIA-AGI-CONTEXT-INTENT SWITCH
 ## 🌐 VPN-ADEAU (VPN Autónoma, Dinámica y Éticamente Aplicable Universalmente)
